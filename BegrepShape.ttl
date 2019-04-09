@@ -20,12 +20,14 @@ skosno:BegrepShape
       sh:class skosxl:Label ;
       sh:minCount 1 ;
       sh:severity sh:Violation ;
+      sh:message "Begrepet må ha minst 1 anbefalt term" ;
     ] ;
     sh:property [
       sh:path skosno:betydningsbeskrivelse ;
       sh:class skosno:Definisjon ;
       sh:minCount 1 ;
       sh:severity sh:Violation ;
+      sh:message "Begrepet må ha minst 1 definisjon" ;
     ] ;
     sh:property [
       sh:path dct:identifier ;
@@ -33,6 +35,7 @@ skosno:BegrepShape
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:severity sh:Violation ;
+      sh:message "Begrepet må ha 1 og kun 1 identifikator. Identifikatoren må være en IRI" ;
     ] ;
     sh:property [
       sh:path dct:publisher ;
@@ -40,4 +43,5 @@ skosno:BegrepShape
       sh:minCount 1 ;
       sh:maxCount 1 ;
       sh:severity sh:Violation ;
+      sh:message "Begrepet må ha 1 og kun 1 ansvarlig virksomhet" ;
     ] .
