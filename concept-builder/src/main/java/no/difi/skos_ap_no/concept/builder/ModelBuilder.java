@@ -20,8 +20,12 @@ public class ModelBuilder {
         return new CollectionBuilder(this, model, collectionUri);
     }
 
-    public Model build() {
+    public Model getModel() {
         return model;
+    }
+
+    public Model build() {
+        return getModel();
     }
 
     private Model createModel() {
