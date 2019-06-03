@@ -12,13 +12,17 @@ public class BegrepssamlingBuilder {
     private CollectionBuilder collectionBuilder;
 
 
-    BegrepssamlingBuilder(final ModellBuilder modellBuilder, final ModelBuilder modelBuilder, final String identifikatorUri) {
+    BegrepssamlingBuilder(final ModellBuilder modellBuilder, final ModelBuilder modelBuilder, final String identifikatorUri, final String ansvarligVirksomhet) {
         this.parent = modellBuilder;
-        collectionBuilder = modelBuilder.collectionBuilder(identifikatorUri);
+        collectionBuilder = modelBuilder.collectionBuilder(identifikatorUri, ansvarligVirksomhet);
     }
 
     public BegrepBuilder begrepBuilder(final String begrepUri) {
-        return new BegrepBuilder(this, collectionBuilder, begrepUri);
+        return begrepBuilder(begrepUri, collectionBuilder.getPublisher());
+    }
+
+    public BegrepBuilder begrepBuilder(final String begrepUri, final String ansvarligVirksomhet) {
+        return new BegrepBuilder(this, collectionBuilder, begrepUri, ansvarligVirksomhet);
     }
 
     public BegrepssamlingBuilder ansvarligVirksomhet(final String orgNr) {

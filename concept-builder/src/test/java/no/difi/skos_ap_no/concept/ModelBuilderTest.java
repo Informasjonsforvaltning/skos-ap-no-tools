@@ -12,10 +12,8 @@ class ModelBuilderTest {
     void testBuilder() {
 
         Model model = ModelBuilder.builder()
-            .collectionBuilder("http://my.org/collectino/first")
-                .publisher("123456789")
+            .collectionBuilder("http://my.org/collectino/first", "123456789")
                 .conceptBuilder("http://my.org/concept/application")
-                    .publisher("123456789")
                     .definitionBuilder()
                         .text("an application is a program", "en")
                         .sourceBuilder()
@@ -58,10 +56,8 @@ class ModelBuilderTest {
     void norwegianTestBuilder() {
 
         Model model = ModellBuilder.builder()
-            .begrepssamlingBuilder("http://my.org/collectino/first")
-                .ansvarligVirksomhet("123456789")
+            .begrepssamlingBuilder("http://my.org/collectino/first", "123456789")
                 .begrepBuilder("http://my.org/concept/application")
-                    .ansvarligVirksomhet("123456789")
                     .definisjonBuilder()
                         .tekst("an application is a program", "en")
                         .kildeBuilder()

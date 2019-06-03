@@ -15,9 +15,8 @@ class ModelReaderTest {
     @Test
     void readAConcept() {
         Model conceptModel = ModelBuilder.builder()
-            .collectionBuilder("http://my.org/collectino/first")
+            .collectionBuilder("http://my.org/collectino/first", "123456789")
                 .conceptBuilder("http://my.org/concept/application")
-                    .publisher("123456789")
                     .definitionBuilder()
                         .text("an application is a program", "en")
                         .sourceBuilder()

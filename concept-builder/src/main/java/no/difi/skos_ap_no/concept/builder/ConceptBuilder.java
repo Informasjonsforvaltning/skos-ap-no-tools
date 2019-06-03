@@ -15,12 +15,13 @@ public class ConceptBuilder {
     private Resource resource;
 
 
-    ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri) {
+    ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri, final String publisher) {
         this.parent = collectionBuilder;
         this.model = model;
 
-        resource = model.createResource(uri)
-                .addProperty(RDF.type, SKOS.Concept);
+        resource = model.createResource(uri).addProperty(RDF.type, SKOS.Concept);
+
+        publisher(publisher);
     }
 
     public Model getModel() {
@@ -46,6 +47,9 @@ public class ConceptBuilder {
     }
 
     public ConceptBuilder publisher(final String organizationNumber) {
+        if (resource.hasProperty(DCTerms.publisher)) {
+            resource.removeAll(DCTerms.publisher);
+        }
         Resource publisher = model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber);
         resource.addProperty(DCTerms.publisher, publisher);
 
@@ -53,6 +57,9 @@ public class ConceptBuilder {
     }
 
     public ConceptBuilder identifier(final String identifier) {
+        if (resource.hasProperty(DCTerms.identifier)) {
+            resource.removeAll(DCTerms.identifier);
+        }
         resource.addProperty(DCTerms.identifier, identifier);
 
         return this;

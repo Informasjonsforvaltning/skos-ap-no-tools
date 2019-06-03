@@ -13,9 +13,9 @@ public class BegrepBuilder {
     private ConceptBuilder conceptBuilder;
 
 
-    BegrepBuilder(final BegrepssamlingBuilder begrepssamlingBuilder, final CollectionBuilder collectionBuilder, final String identifikatorUri) {
+    BegrepBuilder(final BegrepssamlingBuilder begrepssamlingBuilder, final CollectionBuilder collectionBuilder, final String identifikatorUri, final String ansvarligVirksomhet) {
         this.parent = begrepssamlingBuilder;
-        conceptBuilder = collectionBuilder.conceptBuilder(identifikatorUri);
+        conceptBuilder = collectionBuilder.conceptBuilder(identifikatorUri, ansvarligVirksomhet);
     }
 
     public Model getModel() {

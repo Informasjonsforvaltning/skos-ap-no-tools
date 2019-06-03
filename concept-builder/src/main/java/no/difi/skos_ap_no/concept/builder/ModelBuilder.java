@@ -16,8 +16,8 @@ public class ModelBuilder {
         return new ModelBuilder();
     }
 
-    public CollectionBuilder collectionBuilder(final String collectionUri) {
-        return new CollectionBuilder(this, model, collectionUri);
+    public CollectionBuilder collectionBuilder(final String collectionUri, final String publisher) {
+        return new CollectionBuilder(this, model, collectionUri, publisher);
     }
 
     public Model getModel() {
