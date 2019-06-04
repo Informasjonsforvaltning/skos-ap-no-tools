@@ -48,6 +48,10 @@ public class CollectionBuilder {
         return this;
     }
 
+    public ContactPointCollectionBuilder contactPointBuilder() {
+        return new ContactPointCollectionBuilder(this);
+    }
+
     public ModelBuilder build() {
         return parent;
     }

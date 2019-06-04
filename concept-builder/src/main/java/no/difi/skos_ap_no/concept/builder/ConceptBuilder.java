@@ -98,9 +98,8 @@ public class ConceptBuilder {
         return this;
     }
 
-    public ContactPointBuilder contactPointBuilder() {
-
-        return new ContactPointBuilder(this);
+    public ContactPointConceptBuilder contactPointBuilder() {
+        return new ContactPointConceptBuilder(this);
     }
 
     private Resource createSkosxlLabel(final String labelText, final String language) {

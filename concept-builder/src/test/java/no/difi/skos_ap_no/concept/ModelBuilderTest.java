@@ -57,6 +57,9 @@ class ModelBuilderTest {
 
         Model model = ModellBuilder.builder()
             .begrepssamlingBuilder("http://my.org/collectino/first", "123456789")
+                .kontaktpunktBuilder()
+                    .organisasjonsenhet("asdf")
+                    .build()
                 .begrepBuilder("http://my.org/concept/application")
                     .definisjonBuilder()
                         .tekst("an application is a program", "en")

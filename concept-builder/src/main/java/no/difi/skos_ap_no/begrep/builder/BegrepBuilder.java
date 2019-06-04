@@ -74,7 +74,7 @@ public class BegrepBuilder {
         return new DefinisjonBuilder(this, conceptBuilder, SKOSNO.AlternativFormulering);
     }
 
-    public KontaktpunktBuilder kontaktpunktBuilder() {
-        return new KontaktpunktBuilder(this, conceptBuilder);
+    public KontaktpunktBegrepBuilder kontaktpunktBuilder() {
+        return new KontaktpunktBegrepBuilder(this, conceptBuilder);
     }
 }

@@ -1,19 +1,19 @@
 package no.difi.skos_ap_no.concept.builder;
 
+import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.DCAT;
 import org.apache.jena.vocabulary.VCARD4;
 
 
-public class ContactPointBuilder {
+public abstract class ContactPointBuilder {
 
-    private ConceptBuilder parent;
     private Resource resource;
+    private Model model;
 
 
-    ContactPointBuilder(final ConceptBuilder parent) {
-        this.parent = parent;
-        resource = parent.getModel().createResource(VCARD4.Organization);
+    ContactPointBuilder(Model model) {
+        this.model = model;
+        resource = model.createResource(VCARD4.Organization);
     }
 
     public ContactPointBuilder email(final String email) {
@@ -34,7 +34,7 @@ public class ContactPointBuilder {
     }
 
     private Resource emailResource(final String email) {
-        return parent.getModel().createResource("mailto:" + email);
+        return model.createResource("mailto:" + email);
     }
 
     private Resource telephoneResource(final String telephone) {
@@ -54,13 +54,10 @@ public class ContactPointBuilder {
             }
             //else skip visual-separator and other content
         }
-        return parent.getModel().createResource("tel:" + sb.toString());
+        return model.createResource("tel:" + sb.toString());
     }
 
-    public ConceptBuilder build() {
-        parent.getResource().addProperty(DCAT.contactPoint, resource);
-
-        return parent;
+    Resource getResource() {
+        return resource;
     }
-
 }

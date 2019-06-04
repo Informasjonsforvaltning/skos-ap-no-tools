@@ -30,6 +30,10 @@ public class BegrepssamlingBuilder {
         return this;
     }
 
+    public KontaktpunktBegrepssamlingBuilder kontaktpunktBuilder() {
+        return new KontaktpunktBegrepssamlingBuilder(this, collectionBuilder);
+    }
+
     public Model getModel() {
         return collectionBuilder.getModel();
     }
