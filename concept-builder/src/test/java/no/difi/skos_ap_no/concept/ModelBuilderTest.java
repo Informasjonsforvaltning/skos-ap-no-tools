@@ -13,6 +13,7 @@ class ModelBuilderTest {
 
         Model model = ModelBuilder.builder()
             .collectionBuilder("http://my.org/collectino/first", "123456789")
+                .name("Collection1", "nb")
                 .conceptBuilder("http://my.org/concept/application")
                     .definitionBuilder()
                         .text("an application is a program", "en")
@@ -57,6 +58,7 @@ class ModelBuilderTest {
 
         Model model = ModellBuilder.builder()
             .begrepssamlingBuilder("http://my.org/collectino/first", "123456789")
+                .navn("Samling1", "nb")
                 .kontaktpunktBuilder()
                     .organisasjonsenhet("asdf")
                     .build()

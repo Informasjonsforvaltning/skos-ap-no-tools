@@ -25,6 +25,11 @@ public class BegrepssamlingBuilder {
         return new BegrepBuilder(this, collectionBuilder, begrepUri, ansvarligVirksomhet);
     }
 
+    public BegrepssamlingBuilder navn(final String navn, final String språk) {
+        collectionBuilder.name(navn, språk);
+        return this;
+    }
+
     public BegrepssamlingBuilder ansvarligVirksomhet(final String orgNr) {
         collectionBuilder.publisher(orgNr);
         return this;
