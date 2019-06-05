@@ -15,8 +15,8 @@ public class ModellBuilder {
         return modellBuilder;
     }
 
-    public BegrepssamlingBuilder begrepssamlingBuilder(final String identifikatorUri, final String ansvarligVirksomhet) {
-        return new BegrepssamlingBuilder(this, modelBuilder, identifikatorUri, ansvarligVirksomhet);
+    public BegrepssamlingBuilder begrepssamlingBuilder(final String identifikatorUri) {
+        return new BegrepssamlingBuilder(this, modelBuilder, identifikatorUri);
     }
 
     public Model getModel() {

@@ -12,8 +12,9 @@ class ModelBuilderTest {
     void testBuilder() {
 
         Model model = ModelBuilder.builder()
-            .collectionBuilder("http://my.org/collectino/first", "123456789")
+            .collectionBuilder("http://my.org/collectino/first")
                 .name("Collection1", "nb")
+                .publisher("123456789")
                 .conceptBuilder("http://my.org/concept/application")
                     .definitionBuilder()
                         .text("an application is a program", "en")
@@ -50,15 +51,16 @@ class ModelBuilderTest {
                 .build()
             .build();
 
-        model.write(System.out, "TURTLE");
+        //model.write(System.out, "TURTLE");
     }
 
     @Test
     void norwegianTestBuilder() {
 
         Model model = ModellBuilder.builder()
-            .begrepssamlingBuilder("http://my.org/collectino/first", "123456789")
+            .begrepssamlingBuilder("http://my.org/collectino/first")
                 .navn("Samling1", "nb")
+                .ansvarligVirksomhet("123456789")
                 .kontaktpunktBuilder()
                     .organisasjonsenhet("asdf")
                     .build()
@@ -98,6 +100,6 @@ class ModelBuilderTest {
                 .build()
             .build();
 
-        model.write(System.out, "TURTLE");
+        //model.write(System.out, "TURTLE");
     }
 }

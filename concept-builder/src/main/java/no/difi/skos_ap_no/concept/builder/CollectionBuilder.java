@@ -17,11 +17,10 @@ public class CollectionBuilder {
     private String publisher;
 
 
-    CollectionBuilder(final ModelBuilder modelBuilder, final Model model, final String collectionUri, final String publisher) {
+    CollectionBuilder(final ModelBuilder modelBuilder, final Model model, final String collectionUri) {
         this.parent = modelBuilder;
         this.model = model;
         resource = model.createResource(collectionUri).addProperty(RDF.type, SKOS.Collection);
-        publisher(publisher);
     }
 
     public Model getModel() {
@@ -62,6 +61,12 @@ public class CollectionBuilder {
     }
 
     public ModelBuilder build() {
+        if (!resource.hasProperty(RDFS.label)) {
+            throw new RuntimeException("Collection requires name");
+        }
+        if (!resource.hasProperty(DCTerms.publisher)) {
+            throw new RuntimeException("Collection requires publisher");
+        }
         return parent;
     }
 

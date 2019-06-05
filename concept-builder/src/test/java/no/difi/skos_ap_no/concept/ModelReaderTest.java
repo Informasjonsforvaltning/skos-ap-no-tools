@@ -15,7 +15,9 @@ class ModelReaderTest {
     @Test
     void readAConcept() {
         Model conceptModel = ModelBuilder.builder()
-            .collectionBuilder("http://my.org/collectino/first", "123456789")
+            .collectionBuilder("http://my.org/collectino/first")
+                .name("name", "en")
+                .publisher("123456789")
                 .conceptBuilder("http://my.org/concept/application")
                     .definitionBuilder()
                         .text("an application is a program", "en")
@@ -51,7 +53,7 @@ class ModelReaderTest {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        System.out.println(gson.toJson(concepts));
+        //System.out.println(gson.toJson(concepts));
     }
 
     @Test
@@ -65,6 +67,6 @@ class ModelReaderTest {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        System.out.println(gson.toJson(concepts));
+        //System.out.println(gson.toJson(concepts));
     }
 }

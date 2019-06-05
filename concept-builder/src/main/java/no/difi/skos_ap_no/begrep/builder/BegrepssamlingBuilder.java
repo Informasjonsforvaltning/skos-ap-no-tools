@@ -4,6 +4,8 @@ import no.difi.skos_ap_no.concept.builder.CollectionBuilder;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.DCTerms;
+import org.apache.jena.vocabulary.RDFS;
 
 
 public class BegrepssamlingBuilder {
@@ -12,9 +14,9 @@ public class BegrepssamlingBuilder {
     private CollectionBuilder collectionBuilder;
 
 
-    BegrepssamlingBuilder(final ModellBuilder modellBuilder, final ModelBuilder modelBuilder, final String identifikatorUri, final String ansvarligVirksomhet) {
+    BegrepssamlingBuilder(final ModellBuilder modellBuilder, final ModelBuilder modelBuilder, final String identifikatorUri) {
         this.parent = modellBuilder;
-        collectionBuilder = modelBuilder.collectionBuilder(identifikatorUri, ansvarligVirksomhet);
+        collectionBuilder = modelBuilder.collectionBuilder(identifikatorUri);
     }
 
     public BegrepBuilder begrepBuilder(final String begrepUri) {
@@ -48,6 +50,12 @@ public class BegrepssamlingBuilder {
     }
 
     public ModellBuilder build() {
+        if (!getResource().hasProperty(RDFS.label)) {
+            throw new RuntimeException("Begrepssamling krever navn");
+        }
+        if (!getResource().hasProperty(DCTerms.publisher)) {
+            throw new RuntimeException("Begrepssamling krever ansvarligVirksomhet");
+        }
         return parent;
     }
 
