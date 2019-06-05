@@ -13,7 +13,7 @@ class ModelBuilderTest {
 
         Model model = ModelBuilder.builder()
             .collectionBuilder("http://my.org/collectino/first")
-                .name("Collection1", "nb")
+                .name("Collection1")
                 .publisher("123456789")
                 .conceptBuilder("http://my.org/concept/application")
                     .definitionBuilder()
@@ -59,7 +59,7 @@ class ModelBuilderTest {
 
         Model model = ModellBuilder.builder()
             .begrepssamlingBuilder("http://my.org/collectino/first")
-                .navn("Samling1", "nb")
+                .navn("Samling1")
                 .ansvarligVirksomhet("123456789")
                 .kontaktpunktBuilder()
                     .organisasjonsenhet("asdf")

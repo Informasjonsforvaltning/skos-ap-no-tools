@@ -16,7 +16,7 @@ class ModelReaderTest {
     void readAConcept() {
         Model conceptModel = ModelBuilder.builder()
             .collectionBuilder("http://my.org/collectino/first")
-                .name("name", "en")
+                .name("name")
                 .publisher("123456789")
                 .conceptBuilder("http://my.org/concept/application")
                     .definitionBuilder()

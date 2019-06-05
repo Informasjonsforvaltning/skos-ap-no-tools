@@ -21,25 +21,27 @@ public class CollectionBuilder {
         this.parent = modelBuilder;
         this.model = model;
         resource = model.createResource(collectionUri).addProperty(RDF.type, SKOS.Collection);
-    }
 
-    public Model getModel() {
-        return model;
-    }
-
-    public Resource getResource() {
-        return resource;
+        identifier(collectionUri);
     }
 
     public ConceptBuilder conceptBuilder(final String conceptUri) {
         return new ConceptBuilder(this, this.model, conceptUri);
     }
 
-    public CollectionBuilder name(final String name, final String language) {
+    public CollectionBuilder name(final String name) {
         if (resource.hasProperty(RDFS.label)) {
             resource.removeAll(RDFS.label);
         }
-        resource.addProperty(RDFS.label, name, language);
+        resource.addProperty(RDFS.label, name);
+        return this;
+    }
+
+    public CollectionBuilder identifier(final String identifier) {
+        if (resource.hasProperty(DCTerms.identifier)) {
+            resource.removeAll(DCTerms.identifier);
+        }
+        resource.addProperty(DCTerms.identifier, identifier);
         return this;
     }
 
@@ -52,8 +54,24 @@ public class CollectionBuilder {
         return this;
     }
 
+    public CollectionBuilder description(final String description) {
+        if (resource.hasProperty(DCTerms.description)) {
+            resource.removeAll(DCTerms.description);
+        }
+        resource.addProperty(DCTerms.description, description);
+        return this;
+    }
+
     public ContactPointCollectionBuilder contactPointBuilder() {
         return new ContactPointCollectionBuilder(this);
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public Resource getResource() {
+        return resource;
     }
 
     public ModelBuilder build() {

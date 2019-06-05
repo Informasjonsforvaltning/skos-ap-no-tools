@@ -15,9 +15,9 @@ public class ConceptBuilder {
     ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri) {
         this.parent = collectionBuilder;
         this.model = model;
-
         resource = model.createResource(uri).addProperty(RDF.type, SKOS.Concept);
 
+        identifier(uri);
         publisher(collectionBuilder.getPublisher()); //Inherit publisher from Collection
     }
 
@@ -29,21 +29,20 @@ public class ConceptBuilder {
         return new DefinitionBuilder(this, SKOSNO.AlternativFormulering);
     }
 
+    public ConceptBuilder identifier(final String identifier) {
+        if (resource.hasProperty(DCTerms.identifier)) {
+            resource.removeAll(DCTerms.identifier);
+        }
+        resource.addProperty(DCTerms.identifier, identifier);
+        return this;
+    }
+
     public ConceptBuilder publisher(final String organizationNumber) {
         if (resource.hasProperty(DCTerms.publisher)) {
             resource.removeAll(DCTerms.publisher);
         }
         Resource publisher = model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber);
         resource.addProperty(DCTerms.publisher, publisher);
-
-        return this;
-    }
-
-    public ConceptBuilder identifier(final String identifier) {
-        if (resource.hasProperty(DCTerms.identifier)) {
-            resource.removeAll(DCTerms.identifier);
-        }
-        resource.addProperty(DCTerms.identifier, identifier);
 
         return this;
     }

@@ -19,13 +19,13 @@ public class BegrepBuilder {
         conceptBuilder = collectionBuilder.conceptBuilder(identifikatorUri);
     }
 
-    public BegrepBuilder ansvarligVirksomhet(final String orgNr) {
-        conceptBuilder.publisher(orgNr);
+    public BegrepBuilder identifikator(final String identifikator) {
+        conceptBuilder.identifier(identifikator);
         return this;
     }
 
-    public BegrepBuilder identifikator(final String identifikator) {
-        conceptBuilder.identifier(identifikator);
+    public BegrepBuilder ansvarligVirksomhet(final String orgNr) {
+        conceptBuilder.publisher(orgNr);
         return this;
     }
 

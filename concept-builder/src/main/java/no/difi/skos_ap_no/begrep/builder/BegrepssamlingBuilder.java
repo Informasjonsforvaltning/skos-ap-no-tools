@@ -23,8 +23,13 @@ public class BegrepssamlingBuilder {
         return new BegrepBuilder(this, collectionBuilder, begrepUri);
     }
 
-    public BegrepssamlingBuilder navn(final String navn, final String språk) {
-        collectionBuilder.name(navn, språk);
+    public BegrepssamlingBuilder navn(final String navn) {
+        collectionBuilder.name(navn);
+        return this;
+    }
+
+    public BegrepssamlingBuilder identifikator(final String identifikator) {
+        collectionBuilder.identifier(identifikator);
         return this;
     }
 
@@ -33,6 +38,11 @@ public class BegrepssamlingBuilder {
         return this;
     }
 
+    public BegrepssamlingBuilder beskrivelse(final String beskrivelse) {
+        collectionBuilder.description(beskrivelse);
+        return this;
+    }
+    
     public KontaktpunktBegrepssamlingBuilder kontaktpunktBuilder() {
         return new KontaktpunktBegrepssamlingBuilder(this, collectionBuilder);
     }
