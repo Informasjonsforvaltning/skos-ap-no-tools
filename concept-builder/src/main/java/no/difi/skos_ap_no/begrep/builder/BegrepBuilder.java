@@ -5,6 +5,7 @@ import no.difi.skos_ap_no.concept.builder.ConceptBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.DCTerms;
 
 
 public class BegrepBuilder {
@@ -13,22 +14,9 @@ public class BegrepBuilder {
     private ConceptBuilder conceptBuilder;
 
 
-    BegrepBuilder(final BegrepssamlingBuilder begrepssamlingBuilder, final CollectionBuilder collectionBuilder, final String identifikatorUri, final String ansvarligVirksomhet) {
+    BegrepBuilder(final BegrepssamlingBuilder begrepssamlingBuilder, final CollectionBuilder collectionBuilder, final String identifikatorUri) {
         this.parent = begrepssamlingBuilder;
-        conceptBuilder = collectionBuilder.conceptBuilder(identifikatorUri, ansvarligVirksomhet);
-    }
-
-    public Model getModel() {
-        return conceptBuilder.getModel();
-    }
-
-    public Resource getResource() {
-        return conceptBuilder.getResource();
-    }
-
-    public BegrepssamlingBuilder build() {
-        conceptBuilder.build();
-        return parent;
+        conceptBuilder = collectionBuilder.conceptBuilder(identifikatorUri);
     }
 
     public BegrepBuilder ansvarligVirksomhet(final String orgNr) {
@@ -77,4 +65,22 @@ public class BegrepBuilder {
     public KontaktpunktBegrepBuilder kontaktpunktBuilder() {
         return new KontaktpunktBegrepBuilder(this, conceptBuilder);
     }
+
+    public Model getModel() {
+        return conceptBuilder.getModel();
+    }
+
+    public Resource getResource() {
+        return conceptBuilder.getResource();
+    }
+
+    public BegrepssamlingBuilder build() {
+        if (!getResource().hasProperty(DCTerms.publisher)) {
+            throw new RuntimeException("Begrep krever ansvarligVirksomhet");
+        }
+
+        conceptBuilder.build();
+        return parent;
+    }
+
 }

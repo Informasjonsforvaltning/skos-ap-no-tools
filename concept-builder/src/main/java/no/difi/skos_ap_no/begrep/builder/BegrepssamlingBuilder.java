@@ -20,11 +20,7 @@ public class BegrepssamlingBuilder {
     }
 
     public BegrepBuilder begrepBuilder(final String begrepUri) {
-        return begrepBuilder(begrepUri, collectionBuilder.getPublisher());
-    }
-
-    public BegrepBuilder begrepBuilder(final String begrepUri, final String ansvarligVirksomhet) {
-        return new BegrepBuilder(this, collectionBuilder, begrepUri, ansvarligVirksomhet);
+        return new BegrepBuilder(this, collectionBuilder, begrepUri);
     }
 
     public BegrepssamlingBuilder navn(final String navn, final String språk) {

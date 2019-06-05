@@ -2,10 +2,7 @@ package no.difi.skos_ap_no.concept.builder;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.DCTerms;
-import org.apache.jena.vocabulary.RDF;
-import org.apache.jena.vocabulary.SKOS;
-import org.apache.jena.vocabulary.SKOSXL;
+import org.apache.jena.vocabulary.*;
 
 
 public class ConceptBuilder {
@@ -15,27 +12,13 @@ public class ConceptBuilder {
     private Resource resource;
 
 
-    ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri, final String publisher) {
+    ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri) {
         this.parent = collectionBuilder;
         this.model = model;
 
         resource = model.createResource(uri).addProperty(RDF.type, SKOS.Concept);
 
-        publisher(publisher);
-    }
-
-    public Model getModel() {
-        return model;
-    }
-
-    public Resource getResource() {
-        return resource;
-    }
-
-    public CollectionBuilder build() {
-        parent.getResource().addProperty(SKOS.member, getResource());
-
-        return parent;
+        publisher(collectionBuilder.getPublisher()); //Inherit publisher from Collection
     }
 
     public DefinitionBuilder definitionBuilder() {
@@ -106,6 +89,23 @@ public class ConceptBuilder {
         Resource resource = model.createResource(SKOSXL.Label);
         resource.addProperty(SKOSXL.literalForm, labelText, language);
         return resource;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public Resource getResource() {
+        return resource;
+    }
+
+    public CollectionBuilder build() {
+        if (!resource.hasProperty(DCTerms.publisher)) {
+            throw new RuntimeException("Concept requires publisher");
+        }
+
+        parent.getResource().addProperty(SKOS.member, getResource());
+        return parent;
     }
 
 }

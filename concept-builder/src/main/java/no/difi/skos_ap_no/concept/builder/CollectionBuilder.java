@@ -32,11 +32,7 @@ public class CollectionBuilder {
     }
 
     public ConceptBuilder conceptBuilder(final String conceptUri) {
-        return conceptBuilder(conceptUri, this.publisher);
-    }
-
-    public ConceptBuilder conceptBuilder(final String conceptUri, final String publisher) {
-        return new ConceptBuilder(this, this.model, conceptUri, publisher);
+        return new ConceptBuilder(this, this.model, conceptUri);
     }
 
     public CollectionBuilder name(final String name, final String language) {
