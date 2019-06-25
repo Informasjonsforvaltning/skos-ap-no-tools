@@ -43,40 +43,36 @@ public class ConceptBuilder {
         }
         Resource publisher = model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber);
         resource.addProperty(DCTerms.publisher, publisher);
-
         return this;
     }
 
     public ConceptBuilder preferredTerm(final String term, final String language) {
-
         model.add(resource, SKOSXL.prefLabel, createSkosxlLabel(term, language));
-
         return this;
     }
 
     public ConceptBuilder alternativeTerm(final String term, final String language) {
-
         resource.addProperty(SKOSXL.altLabel, createSkosxlLabel(term, language));
-
         return this;
     }
 
     public ConceptBuilder deprecatedTerm(final String term, final String language) {
-
         resource.addProperty(SKOSXL.hiddenLabel, createSkosxlLabel(term, language));
-
         return this;
     }
 
     public ConceptBuilder subject(final String subject, final String language) {
         resource.addProperty(DCTerms.subject, subject, language);
+        return this;
+    }
 
+    public ConceptBuilder domainOfUse(final String domainOfUse, final String language) {
+        resource.addProperty(SKOSNO.bruksområde, domainOfUse, language);
         return this;
     }
 
     public ConceptBuilder example(final String example, final String language) {
         resource.addProperty(SKOS.example, example, language);
-
         return this;
     }
 

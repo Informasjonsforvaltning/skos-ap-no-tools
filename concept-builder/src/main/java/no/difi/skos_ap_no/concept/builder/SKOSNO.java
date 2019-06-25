@@ -13,6 +13,7 @@ public class SKOSNO {
     private static Model model = ModelFactory.createDefaultModel();
 
     public static Property betydningsbeskrivelse = model.createProperty(NS, "betydningsbeskrivelse");
+    public static Property bruksområde = model.createProperty(NS, "bruksområde");
 
     public static Resource Definisjon = model.createResource(NS + "Definisjon");
     public static Resource AlternativFormulering = model.createResource(NS + "AlternativFormulering");

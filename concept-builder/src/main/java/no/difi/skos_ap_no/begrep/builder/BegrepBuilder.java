@@ -49,6 +49,11 @@ public class BegrepBuilder {
         return this;
     }
 
+    public BegrepBuilder bruksområde(final String tekst, final String språk) {
+        conceptBuilder.domainOfUse(tekst, språk);
+        return this;
+    }
+
     public BegrepBuilder eksempel(final String tekst, final String språk) {
         conceptBuilder.example(tekst, språk);
         return this;
