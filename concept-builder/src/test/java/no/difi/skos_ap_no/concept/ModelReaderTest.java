@@ -8,6 +8,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.List;
 
 class ModelReaderTest {
@@ -27,7 +28,7 @@ class ModelReaderTest {
                             .build()
                         .audience("allmenheten", "nb")
                         .scopeNote("dette gjelder intill videre", "nb")
-                        .modified("2017-10-20")
+                        .modified(LocalDate.of(2017, 10, 20))
                         .build()
                     .alternativeDefinitionBuilder()
                         .text("can be a program also", "en")

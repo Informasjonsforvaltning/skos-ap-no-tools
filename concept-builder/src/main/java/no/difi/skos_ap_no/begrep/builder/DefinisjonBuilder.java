@@ -6,6 +6,8 @@ import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 
+import java.time.LocalDate;
+
 
 public class DefinisjonBuilder {
 
@@ -45,7 +47,7 @@ public class DefinisjonBuilder {
         return this;
     }
 
-    public DefinisjonBuilder sistOppdatert(final String dato) {
+    public DefinisjonBuilder sistOppdatert(final LocalDate dato) {
         definitionBuilder.modified(dato);
         return this;
     }

@@ -7,6 +7,8 @@ import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.SKOS;
 
+import java.time.LocalDate;
+
 
 public class DefinitionBuilder {
 
@@ -54,7 +56,7 @@ public class DefinitionBuilder {
         return this;
     }
 
-    public DefinitionBuilder modified(final String date) {
+    public DefinitionBuilder modified(final LocalDate date) {
 
         resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
 

@@ -80,6 +80,10 @@ public class ConceptBuilder {
         return new ContactPointConceptBuilder(this);
     }
 
+    public PeriodOfTimeBuilder periodOfTimeBuilder() {
+        return new PeriodOfTimeBuilder(this);
+    }
+
     private Resource createSkosxlLabel(final String labelText, final String language) {
         Resource resource = model.createResource(SKOSXL.Label);
         resource.addProperty(SKOSXL.literalForm, labelText, language);

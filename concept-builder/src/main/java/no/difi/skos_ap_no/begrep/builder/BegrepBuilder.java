@@ -71,6 +71,10 @@ public class BegrepBuilder {
         return new KontaktpunktBegrepBuilder(this, conceptBuilder);
     }
 
+    public GyldighetsperiodeBuilder gyldighetsperiodeBuilder() {
+        return new GyldighetsperiodeBuilder(this, conceptBuilder);
+    }
+
     public Model getModel() {
         return conceptBuilder.getModel();
     }

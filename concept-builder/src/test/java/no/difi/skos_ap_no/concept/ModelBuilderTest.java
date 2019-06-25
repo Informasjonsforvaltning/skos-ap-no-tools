@@ -6,6 +6,8 @@ import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 class ModelBuilderTest {
 
     @Test
@@ -24,7 +26,7 @@ class ModelBuilderTest {
                             .build()
                         .audience("allmenheten", "nb")
                         .scopeNote("dette gjelder intill videre", "nb")
-                        .modified("2017-10-20")
+                        .modified(LocalDate.of(2017, 10, 20))
                         .build()
                     .alternativeDefinitionBuilder()
                         .text("can be a program also", "en")
@@ -40,6 +42,10 @@ class ModelBuilderTest {
                         .organizationUnit("Contact Dep")
                         .email("me@org.no")
                         .telephone("+4755555555")
+                        .build()
+                    .periodOfTimeBuilder()
+                        .validFromIncluding(LocalDate.of(2017, 1, 1))
+                        .validToIncluding(LocalDate.of(2017, 12, 31))
                         .build()
                     .build()
                     .conceptBuilder("https://my.org/concept/term")
@@ -73,7 +79,7 @@ class ModelBuilderTest {
                             .build()
                         .målgruppe("allmenheten", "nb")
                         .merknad("dette gjelder intill videre", "nb")
-                        .sistOppdatert("2017-10-20")
+                        .sistOppdatert(LocalDate.of(2017, 10, 20))
                         .build()
                     .alternativFormuleringBuilder()
                         .tekst("can be a program also", "en")
@@ -89,6 +95,10 @@ class ModelBuilderTest {
                         .organisasjonsenhet("Contact Dep")
                         .epost("me@org.no")
                         .telefon("+4755555555")
+                        .build()
+                    .gyldighetsperiodeBuilder()
+                        .gyldigFraOgMed(LocalDate.of(2017, 1, 1))
+                        .gyldigTilOgMed(LocalDate.of(2017, 12, 31))
                         .build()
                     .build()
                     .begrepBuilder("https://my.org/concept/term")
