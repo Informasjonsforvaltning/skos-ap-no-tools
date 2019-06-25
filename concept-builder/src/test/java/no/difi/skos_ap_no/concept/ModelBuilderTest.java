@@ -54,6 +54,8 @@ class ModelBuilderTest {
                     .build()
                 .conceptBuilder("https://my.org/concept/rest")
                     .alternativeTerm("Representational State Transfer", "en")
+                    .replaces("https://my.org/concept/term")
+                    .replacedBy("http://my.org/collectino/first")
                     .build()
                 .build()
             .build();
@@ -108,6 +110,8 @@ class ModelBuilderTest {
                     .build()
                 .begrepBuilder("https://my.org/concept/rest")
                     .tillattTerm("Representational State Transfer", "en")
+                    .erstatter("https://my.org/concept/term")
+                    .erstattesAv("http://my.org/collectino/first")
                     .build()
                 .build()
             .build();

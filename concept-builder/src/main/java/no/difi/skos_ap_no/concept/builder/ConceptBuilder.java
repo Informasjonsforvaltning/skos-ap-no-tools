@@ -101,6 +101,18 @@ public class ConceptBuilder {
         return resource;
     }
 
+    public ConceptBuilder replaces(final String uri) {
+        resource.addProperty(DCTerms.replaces, uri);
+        getModel().getResource(uri).addProperty(DCTerms.isReplacedBy, getResource().getURI());
+        return this;
+    }
+
+    public ConceptBuilder replacedBy(final String uri) {
+        resource.addProperty(DCTerms.isReplacedBy, uri);
+        getModel().getResource(uri).addProperty(DCTerms.replaces, getResource().getURI());
+        return this;
+    }
+
     public Model getModel() {
         return model;
     }

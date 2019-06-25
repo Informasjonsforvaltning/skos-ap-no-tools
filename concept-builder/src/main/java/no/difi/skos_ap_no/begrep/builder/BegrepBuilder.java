@@ -82,6 +82,16 @@ public class BegrepBuilder {
         return this;
     }
 
+    public BegrepBuilder erstatter(final String identifikatorUri) {
+        conceptBuilder.replaces(identifikatorUri);
+        return this;
+    }
+
+    public BegrepBuilder erstattesAv(final String identifikatorUri) {
+        conceptBuilder.replacedBy(identifikatorUri);
+        return this;
+    }
+
     public Model getModel() {
         return conceptBuilder.getModel();
     }
