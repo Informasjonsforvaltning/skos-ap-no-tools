@@ -7,6 +7,8 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.DCTerms;
 
+import java.time.LocalDate;
+
 
 public class BegrepBuilder {
 
@@ -67,12 +69,17 @@ public class BegrepBuilder {
         return new DefinisjonBuilder(this, conceptBuilder, SKOSNO.AlternativFormulering);
     }
 
+    public GyldighetsperiodeBuilder gyldighetsperiodeBuilder() {
+        return new GyldighetsperiodeBuilder(this, conceptBuilder);
+    }
+
     public KontaktpunktBegrepBuilder kontaktpunktBuilder() {
         return new KontaktpunktBegrepBuilder(this, conceptBuilder);
     }
 
-    public GyldighetsperiodeBuilder gyldighetsperiodeBuilder() {
-        return new GyldighetsperiodeBuilder(this, conceptBuilder);
+    public BegrepBuilder sistOppdatert(final LocalDate dato) {
+        conceptBuilder.modified(dato);
+        return this;
     }
 
     public Model getModel() {

@@ -1,8 +1,11 @@
 package no.difi.skos_ap_no.concept.builder;
 
+import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.*;
+
+import java.time.LocalDate;
 
 
 public class ConceptBuilder {
@@ -76,12 +79,20 @@ public class ConceptBuilder {
         return this;
     }
 
+    public PeriodOfTimeBuilder periodOfTimeBuilder() {
+        return new PeriodOfTimeBuilder(this);
+    }
+
     public ContactPointConceptBuilder contactPointBuilder() {
         return new ContactPointConceptBuilder(this);
     }
 
-    public PeriodOfTimeBuilder periodOfTimeBuilder() {
-        return new PeriodOfTimeBuilder(this);
+    public ConceptBuilder modified(final LocalDate date) {
+        if (resource.hasProperty(DCTerms.modified)) {
+            resource.removeAll(DCTerms.modified);
+        }
+        resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
+        return this;
     }
 
     private Resource createSkosxlLabel(final String labelText, final String language) {
