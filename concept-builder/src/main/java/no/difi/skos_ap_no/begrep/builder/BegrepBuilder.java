@@ -31,19 +31,16 @@ public class BegrepBuilder {
         return this;
     }
 
-    public BegrepBuilder anbefaltTerm(final String tekst, final String språk) {
-        conceptBuilder.preferredTerm(tekst, språk);
-        return this;
+    public AnbefaltTermBuilder anbefaltTermBuilder() {
+        return new AnbefaltTermBuilder(this, conceptBuilder);
     }
 
-    public BegrepBuilder tillattTerm(final String tekst, final String språk) {
-        conceptBuilder.alternativeTerm(tekst, språk);
-        return this;
+    public TillattTermBuilder tillattTermBuilder() {
+        return new TillattTermBuilder(this, conceptBuilder);
     }
 
-    public BegrepBuilder frarådetTerm(final String tekst, final String språk) {
-        conceptBuilder.deprecatedTerm(tekst, språk);
-        return this;
+    public FrarådetTermBuilder frarådetTermBuilder() {
+        return new FrarådetTermBuilder(this, conceptBuilder);
     }
 
     public BegrepBuilder fagområde(final String tekst, final String språk) {

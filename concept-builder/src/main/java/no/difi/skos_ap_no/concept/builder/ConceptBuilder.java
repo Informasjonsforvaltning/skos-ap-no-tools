@@ -49,19 +49,16 @@ public class ConceptBuilder {
         return this;
     }
 
-    public ConceptBuilder preferredTerm(final String term, final String language) {
-        model.add(resource, SKOSXL.prefLabel, createSkosxlLabel(term, language));
-        return this;
+    public PrefLabelBuilder prefLabelBuilder() {
+        return new PrefLabelBuilder(this);
     }
 
-    public ConceptBuilder alternativeTerm(final String term, final String language) {
-        resource.addProperty(SKOSXL.altLabel, createSkosxlLabel(term, language));
-        return this;
+    public AltLabelBuilder altLabelBuilder() {
+        return new AltLabelBuilder(this);
     }
 
-    public ConceptBuilder deprecatedTerm(final String term, final String language) {
-        resource.addProperty(SKOSXL.hiddenLabel, createSkosxlLabel(term, language));
-        return this;
+    public HiddenLabelBuilder hiddenLabelBuilder() {
+        return new HiddenLabelBuilder(this);
     }
 
     public ConceptBuilder subject(final String subject, final String language) {
@@ -93,12 +90,6 @@ public class ConceptBuilder {
         }
         resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
         return this;
-    }
-
-    private Resource createSkosxlLabel(final String labelText, final String language) {
-        Resource resource = model.createResource(SKOSXL.Label);
-        resource.addProperty(SKOSXL.literalForm, labelText, language);
-        return resource;
     }
 
     public ConceptBuilder replaces(final String uri) {
