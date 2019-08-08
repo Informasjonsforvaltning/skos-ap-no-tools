@@ -1,8 +1,8 @@
 # skos-ap-no-tools concept-builder
+
 A stand alone library to instantiate concepts, deserialize/serialize them in RDF and Json according to [DIFIs standard](https://doc.difi.no/data/forvaltningsstandard-begrepsbeskrivelser/)
 
-See *Forvaltningsstandard for tilgjengeliggjøring av begrepsbeskrivelser*: [begrep-skos-ap-no](https://doc.difi.no/data/begrep-skos-ap-no/)
-
+See _Forvaltningsstandard for tilgjengeliggjøring av begrepsbeskrivelser_: [begrep-skos-ap-no](https://doc.difi.no/data/begrep-skos-ap-no/)
 
 # ModelBuilder
 
@@ -207,9 +207,40 @@ Takes a Jena Model object and extracts the concepts in the RDF model.
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         System.out.println(gson.toJson(concepts));
-````
+`
+```
 
+# Usage
 
+Our goal is to publish this library to a official Maven repository. However, we are not there yet. Therefore you must include our jar in your project by following these steps:
+
+The following assumes you are using Spring Boot.
+
+1. Download our jar from the lib-directory.
+2. Add a dependency to the downloaded jar in your pom as a system dependency:
+
+  ```
+  <!-- The local jar for the concept-builder -->
+   <dependency>
+       <groupId>concept-builder.group</groupId>
+       <artifactId>fdk-concept-builder</artifactId>
+       <version>${version.fdk-concept-builder}</version>
+       <scope>system</scope>
+       <systemPath>${basedir}/libs/fdk-concept-builder-1.0-SNAPSHOT.jar</systemPath>
+   </dependency>
+  ```
+
+3. Tell Spring Boot to include system dependencies:
+
+  ```
+  <plugin>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-maven-plugin</artifactId>
+  <configuration>
+  <includeSystemScope>true</includeSystemScope>
+  </configuration>
+  </plugin>
+  ```
 
 # References
 
