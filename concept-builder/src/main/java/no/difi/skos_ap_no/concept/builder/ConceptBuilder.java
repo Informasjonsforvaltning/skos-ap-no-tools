@@ -36,7 +36,9 @@ public class ConceptBuilder {
         if (resource.hasProperty(DCTerms.identifier)) {
             resource.removeAll(DCTerms.identifier);
         }
-        resource.addProperty(DCTerms.identifier, identifier);
+        if (identifier != null) {
+            resource.addProperty(DCTerms.identifier, identifier);
+        }
         return this;
     }
 
@@ -44,8 +46,10 @@ public class ConceptBuilder {
         if (resource.hasProperty(DCTerms.publisher)) {
             resource.removeAll(DCTerms.publisher);
         }
-        Resource publisher = model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber);
-        resource.addProperty(DCTerms.publisher, publisher);
+        if (organizationNumber != null) {
+            Resource publisher = model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber);
+            resource.addProperty(DCTerms.publisher, publisher);
+        }
         return this;
     }
 
@@ -62,17 +66,23 @@ public class ConceptBuilder {
     }
 
     public ConceptBuilder subject(final String subject, final String language) {
-        resource.addProperty(DCTerms.subject, subject, language);
+        if (subject != null) {
+            resource.addProperty(DCTerms.subject, subject, language);
+        }
         return this;
     }
 
     public ConceptBuilder domainOfUse(final String domainOfUse, final String language) {
-        resource.addProperty(SKOSNO.bruksområde, domainOfUse, language);
+        if (domainOfUse != null) {
+            resource.addProperty(SKOSNO.bruksområde, domainOfUse, language);
+        }
         return this;
     }
 
     public ConceptBuilder example(final String example, final String language) {
-        resource.addProperty(SKOS.example, example, language);
+        if (example != null) {
+            resource.addProperty(SKOS.example, example, language);
+        }
         return this;
     }
 
@@ -88,19 +98,25 @@ public class ConceptBuilder {
         if (resource.hasProperty(DCTerms.modified)) {
             resource.removeAll(DCTerms.modified);
         }
-        resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
+        if (date != null) {
+            resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
+        }
         return this;
     }
 
     public ConceptBuilder replaces(final String uri) {
-        resource.addProperty(DCTerms.replaces, uri);
-        getModel().getResource(uri).addProperty(DCTerms.isReplacedBy, getResource().getURI());
+        if (uri != null) {
+            resource.addProperty(DCTerms.replaces, uri);
+            getModel().getResource(uri).addProperty(DCTerms.isReplacedBy, getResource().getURI());
+        }
         return this;
     }
 
     public ConceptBuilder replacedBy(final String uri) {
-        resource.addProperty(DCTerms.isReplacedBy, uri);
-        getModel().getResource(uri).addProperty(DCTerms.replaces, getResource().getURI());
+        if (uri != null) {
+            resource.addProperty(DCTerms.isReplacedBy, uri);
+            getModel().getResource(uri).addProperty(DCTerms.replaces, getResource().getURI());
+        }
         return this;
     }
 

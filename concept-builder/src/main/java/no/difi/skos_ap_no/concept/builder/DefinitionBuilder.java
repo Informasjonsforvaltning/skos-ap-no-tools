@@ -36,22 +36,30 @@ public class DefinitionBuilder {
     }
 
     public DefinitionBuilder text(final String text, final String language) {
-        resource.addProperty(RDFS.label, text, language);
+        if (text != null) {
+            resource.addProperty(RDFS.label, text, language);
+        }
         return this;
     }
 
     public DefinitionBuilder scopeNote(final String scopeText, final String language) {
-        resource.addProperty(SKOS.scopeNote, scopeText, language);
+        if (scopeText != null) {
+            resource.addProperty(SKOS.scopeNote, scopeText, language);
+        }
         return this;
     }
 
     public DefinitionBuilder audience(final String audienceText, final String language) {
-        resource.addProperty(DCTerms.audience, audienceText, language);
+        if (audienceText != null) {
+            resource.addProperty(DCTerms.audience, audienceText, language);
+        }
         return this;
     }
 
     public DefinitionBuilder modified(final LocalDate date) {
-        resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
+        if (date != null) {
+            resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
+        }
         return this;
     }
 

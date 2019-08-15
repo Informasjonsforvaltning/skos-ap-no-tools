@@ -33,7 +33,9 @@ public class CollectionBuilder {
         if (resource.hasProperty(RDFS.label)) {
             resource.removeAll(RDFS.label);
         }
-        resource.addProperty(RDFS.label, name);
+        if (name != null) {
+            resource.addProperty(RDFS.label, name);
+        }
         return this;
     }
 
@@ -41,7 +43,9 @@ public class CollectionBuilder {
         if (resource.hasProperty(DCTerms.identifier)) {
             resource.removeAll(DCTerms.identifier);
         }
-        resource.addProperty(DCTerms.identifier, identifier);
+        if (identifier != null) {
+            resource.addProperty(DCTerms.identifier, identifier);
+        }
         return this;
     }
 
@@ -49,8 +53,10 @@ public class CollectionBuilder {
         if (resource.hasProperty(DCTerms.publisher)) {
             resource.removeAll(DCTerms.publisher);
         }
-        this.publisher = organizationNumber;
-        resource.addProperty(DCTerms.publisher, model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber));
+        if (organizationNumber != null) {
+            this.publisher = organizationNumber;
+            resource.addProperty(DCTerms.publisher, model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber));
+        }
         return this;
     }
 
@@ -58,7 +64,9 @@ public class CollectionBuilder {
         if (resource.hasProperty(DCTerms.description)) {
             resource.removeAll(DCTerms.description);
         }
-        resource.addProperty(DCTerms.description, description);
+        if (description != null) {
+            resource.addProperty(DCTerms.description, description);
+        }
         return this;
     }
 

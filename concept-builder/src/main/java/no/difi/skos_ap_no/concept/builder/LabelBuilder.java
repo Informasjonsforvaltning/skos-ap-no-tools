@@ -20,12 +20,16 @@ public abstract class LabelBuilder {
     }
 
     public LabelBuilder label(final String labelText, final String language) {
-        resource.addProperty(SKOSXL.literalForm, labelText, language);
+        if (labelText != null) {
+            resource.addProperty(SKOSXL.literalForm, labelText, language);
+        }
         return this;
     }
 
     public LabelBuilder modified(final LocalDate date) {
-        resource.addProperty(DCTerms.modified, parent.getModel().createTypedLiteral(date, XSDDateType.XSDdate));
+        if (date != null) {
+            resource.addProperty(DCTerms.modified, parent.getModel().createTypedLiteral(date, XSDDateType.XSDdate));
+        }
         return this;
     }
 

@@ -17,19 +17,23 @@ public abstract class ContactPointBuilder {
     }
 
     public ContactPointBuilder email(final String email) {
-        resource.addProperty(VCARD4.hasEmail, emailResource(email));
+        if (email != null) {
+            resource.addProperty(VCARD4.hasEmail, emailResource(email));
+        }
         return this;
     }
 
     public ContactPointBuilder telephone(final String telephone) {
-        resource.addProperty(VCARD4.hasTelephone, telephoneResource(telephone));
-
+        if (telephone != null) {
+            resource.addProperty(VCARD4.hasTelephone, telephoneResource(telephone));
+        }
         return this;
     }
 
     public ContactPointBuilder organizationUnit(final String orgUnit) {
-        resource.addProperty(VCARD4.hasOrganizationUnit, orgUnit);
-
+        if (orgUnit != null) {
+            resource.addProperty(VCARD4.hasOrganizationUnit, orgUnit);
+        }
         return this;
     }
 

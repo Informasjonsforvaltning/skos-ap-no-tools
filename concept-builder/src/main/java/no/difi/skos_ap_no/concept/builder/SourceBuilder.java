@@ -17,12 +17,16 @@ public class SourceBuilder {
     }
 
     public SourceBuilder label(final String label, final String language) {
-        resource.addProperty(RDFS.label, label, language);
+        if (label != null) {
+            resource.addProperty(RDFS.label, label, language);
+        }
         return this;
     }
 
     public SourceBuilder seeAlso(final String seeAlsoUrl) {
-        resource.addProperty(RDFS.seeAlso, parent.getModel().createResource(seeAlsoUrl));
+        if (seeAlsoUrl != null) {
+            resource.addProperty(RDFS.seeAlso, parent.getModel().createResource(seeAlsoUrl));
+        }
         return this;
     }
 
