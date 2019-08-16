@@ -46,7 +46,7 @@ class ModelBuilderTest {
                         .build()
                     .contactPointBuilder()
                         .organizationUnit("Contact Dep")
-                        .email("me@org.no")
+                        .email("æ}me@org.no")
                         .telephone("+4755555555")
                         .build()
                     .periodOfTimeBuilder()

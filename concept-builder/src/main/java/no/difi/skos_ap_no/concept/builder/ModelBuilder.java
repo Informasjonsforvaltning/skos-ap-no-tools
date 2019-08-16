@@ -56,4 +56,26 @@ public class ModelBuilder {
         return model;
     }
 
+    static String escapeURI(final String uri) {
+        if (uri==null) {
+            return null;
+        }
+
+        final String legalCharacters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._~:/?#[]@!$&'()*+,;="; // and 0xA0->
+        final String hex = "0123456789ABCDEF";
+
+        StringBuilder sb = new StringBuilder();
+        char c;
+        for (int i=0; i<uri.length(); i++) {
+            c = uri.charAt(i);
+            if (legalCharacters.indexOf(c)!=-1 || c>=0xA0) {
+                sb.append(c);
+            } else {
+                sb.append('%');
+                sb.append(hex.charAt((c&0x00F0)>>4));
+                sb.append(hex.charAt((c&0x000F)));
+            }
+        }
+        return sb.toString();
+    }
 }

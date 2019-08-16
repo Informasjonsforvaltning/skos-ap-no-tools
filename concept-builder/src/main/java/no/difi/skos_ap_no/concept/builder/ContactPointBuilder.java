@@ -38,7 +38,7 @@ public abstract class ContactPointBuilder {
     }
 
     private Resource emailResource(final String email) {
-        return model.createResource("mailto:" + email);
+        return model.createResource(ModelBuilder.escapeURI("mailto:" + email));
     }
 
     private Resource telephoneResource(final String telephone) {
@@ -58,7 +58,7 @@ public abstract class ContactPointBuilder {
             }
             //else skip visual-separator and other content
         }
-        return model.createResource("tel:" + sb.toString());
+        return model.createResource(ModelBuilder.escapeURI("tel:" + sb.toString()));
     }
 
     Resource getResource() {
