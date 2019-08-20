@@ -14,6 +14,7 @@ public class SKOSNO {
 
     public static Property betydningsbeskrivelse = model.createProperty(NS, "betydningsbeskrivelse");
     public static Property bruksområde = model.createProperty(NS, "bruksområde");
+    public static Property omfang = model.createProperty(NS, "omfang");
 
     public static Resource Definisjon = model.createResource(NS + "Definisjon");
     public static Resource AlternativFormulering = model.createResource(NS + "AlternativFormulering");
