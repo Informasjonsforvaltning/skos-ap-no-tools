@@ -1,5 +1,7 @@
-package no.difi.skos_ap_no.concept.builder;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning;
 
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -17,7 +19,7 @@ public class DefinitionBuilder {
     private Resource resource;
 
 
-    DefinitionBuilder(final ConceptBuilder conceptBuilder, final Resource definitionClass) {
+    public DefinitionBuilder(final ConceptBuilder conceptBuilder, final Resource definitionClass) {
         parent = conceptBuilder;
         model = conceptBuilder.getModel();
         resource = model.createResource(definitionClass);
@@ -54,6 +56,10 @@ public class DefinitionBuilder {
             resource.addProperty(DCTerms.audience, audienceText, language);
         }
         return this;
+    }
+
+    public URITextBuilder scope() {
+        return new URITextBuilder(this);
     }
 
     public DefinitionBuilder modified(final LocalDate date) {

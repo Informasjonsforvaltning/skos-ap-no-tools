@@ -1,5 +1,6 @@
 package no.difi.skos_ap_no.begrep.builder;
 
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.BegrepssamlingBuilder;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 

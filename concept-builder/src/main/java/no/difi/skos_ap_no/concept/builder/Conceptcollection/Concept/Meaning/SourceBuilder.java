@@ -1,4 +1,4 @@
-package no.difi.skos_ap_no.concept.builder;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning;
 
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.DCTerms;

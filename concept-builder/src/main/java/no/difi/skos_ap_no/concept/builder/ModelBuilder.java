@@ -1,5 +1,6 @@
 package no.difi.skos_ap_no.concept.builder;
 
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 
@@ -56,7 +57,7 @@ public class ModelBuilder {
         return model;
     }
 
-    static String escapeURI(final String uri) {
+    public static String escapeURI(final String uri) {
         if (uri==null) {
             return null;
         }

@@ -1,6 +1,8 @@
-package no.difi.skos_ap_no.begrep.builder;
+package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term;
 
-import no.difi.skos_ap_no.concept.builder.*;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.AltLabelBuilder;
 
 import java.time.LocalDate;
 
@@ -11,7 +13,7 @@ public class TillattTermBuilder {
     private AltLabelBuilder altLabelBuilder;
 
 
-    TillattTermBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
+    public TillattTermBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
         this.parent = begrepBuilder;
         altLabelBuilder = conceptBuilder.altLabelBuilder();
     }

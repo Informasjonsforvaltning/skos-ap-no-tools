@@ -1,5 +1,6 @@
-package no.difi.skos_ap_no.concept.builder;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept;
 
+import no.difi.skos_ap_no.concept.builder.Schema;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;

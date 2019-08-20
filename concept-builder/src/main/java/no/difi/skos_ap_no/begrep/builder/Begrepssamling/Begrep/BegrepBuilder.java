@@ -1,7 +1,12 @@
-package no.difi.skos_ap_no.begrep.builder;
+package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep;
 
-import no.difi.skos_ap_no.concept.builder.CollectionBuilder;
-import no.difi.skos_ap_no.concept.builder.ConceptBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.DefinisjonBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.AnbefaltTermBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.FrarådetTermBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.TillattTermBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.BegrepssamlingBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -16,7 +21,7 @@ public class BegrepBuilder {
     private ConceptBuilder conceptBuilder;
 
 
-    BegrepBuilder(final BegrepssamlingBuilder begrepssamlingBuilder, final CollectionBuilder collectionBuilder, final String identifikatorUri) {
+    public BegrepBuilder(final BegrepssamlingBuilder begrepssamlingBuilder, final CollectionBuilder collectionBuilder, final String identifikatorUri) {
         this.parent = begrepssamlingBuilder;
         conceptBuilder = collectionBuilder.conceptBuilder(identifikatorUri);
     }
@@ -70,8 +75,8 @@ public class BegrepBuilder {
         return new GyldighetsperiodeBuilder(this, conceptBuilder);
     }
 
-    public KontaktpunktBegrepBuilder kontaktpunktBuilder() {
-        return new KontaktpunktBegrepBuilder(this, conceptBuilder);
+    public KontaktpunktBuilder kontaktpunktBuilder() {
+        return new KontaktpunktBuilder(this, conceptBuilder);
     }
 
     public BegrepBuilder sistOppdatert(final LocalDate dato) {

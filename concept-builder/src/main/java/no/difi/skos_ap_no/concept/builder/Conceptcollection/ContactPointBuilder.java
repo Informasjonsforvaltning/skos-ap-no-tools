@@ -1,31 +1,33 @@
-package no.difi.skos_ap_no.concept.builder;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection;
 
+import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.DCAT;
 import org.apache.jena.vocabulary.VCARD4;
 
 
-public abstract class ContactPointBuilder {
+public class ContactPointBuilder {
 
+    private CollectionBuilder parent;
     private Resource resource;
-    private Model model;
 
 
-    ContactPointBuilder(Model model) {
-        this.model = model;
-        resource = model.createResource(VCARD4.Organization);
+    ContactPointBuilder(final CollectionBuilder parent) {
+        this.parent = parent;
+        resource = parent.getModel().createResource(VCARD4.Organization);
     }
 
     public ContactPointBuilder email(final String email) {
         if (email != null) {
-            resource.addProperty(VCARD4.hasEmail, emailResource(email));
+            resource.addProperty(VCARD4.hasEmail, emailResource(parent.getModel(), email));
         }
         return this;
     }
 
     public ContactPointBuilder telephone(final String telephone) {
         if (telephone != null) {
-            resource.addProperty(VCARD4.hasTelephone, telephoneResource(telephone));
+            resource.addProperty(VCARD4.hasTelephone, telephoneResource(parent.getModel(), telephone));
         }
         return this;
     }
@@ -37,11 +39,11 @@ public abstract class ContactPointBuilder {
         return this;
     }
 
-    private Resource emailResource(final String email) {
+    public static Resource emailResource(final Model model, final String email) {
         return model.createResource(ModelBuilder.escapeURI("mailto:" + email));
     }
 
-    private Resource telephoneResource(final String telephone) {
+    public static Resource telephoneResource(final Model model, final String telephone) {
         String phoneTextToParse = telephone.trim();
         StringBuilder sb = new StringBuilder();
         boolean first = true;
@@ -61,7 +63,9 @@ public abstract class ContactPointBuilder {
         return model.createResource(ModelBuilder.escapeURI("tel:" + sb.toString()));
     }
 
-    Resource getResource() {
-        return resource;
+    public CollectionBuilder build() {
+        parent.getResource().addProperty(DCAT.contactPoint, resource);
+        return parent;
     }
+
 }

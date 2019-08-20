@@ -1,7 +1,8 @@
-package no.difi.skos_ap_no.begrep.builder;
+package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term;
 
-import no.difi.skos_ap_no.concept.builder.ConceptBuilder;
-import no.difi.skos_ap_no.concept.builder.HiddenLabelBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.HiddenLabelBuilder;
 
 import java.time.LocalDate;
 
@@ -12,7 +13,7 @@ public class FrarådetTermBuilder {
     private HiddenLabelBuilder hiddenLabelBuilder;
 
 
-    FrarådetTermBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
+    public FrarådetTermBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
         this.parent = begrepBuilder;
         hiddenLabelBuilder = conceptBuilder.hiddenLabelBuilder();
     }

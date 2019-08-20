@@ -1,7 +1,7 @@
-package no.difi.skos_ap_no.begrep.builder;
+package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep;
 
-import no.difi.skos_ap_no.concept.builder.ConceptBuilder;
-import no.difi.skos_ap_no.concept.builder.PeriodOfTimeBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.PeriodOfTimeBuilder;
 
 import java.time.LocalDate;
 
@@ -13,7 +13,7 @@ public class GyldighetsperiodeBuilder {
 
 
 
-    GyldighetsperiodeBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
+    public GyldighetsperiodeBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
         this.parent = begrepBuilder;
         periodOfTimeBuilder = conceptBuilder.periodOfTimeBuilder();
     }

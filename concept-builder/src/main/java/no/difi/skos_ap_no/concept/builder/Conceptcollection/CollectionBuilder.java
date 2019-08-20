@@ -1,5 +1,7 @@
-package no.difi.skos_ap_no.concept.builder;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection;
 
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.DCTerms;
@@ -17,7 +19,7 @@ public class CollectionBuilder {
     private String publisher;
 
 
-    CollectionBuilder(final ModelBuilder modelBuilder, final Model model, final String collectionUri) {
+    public CollectionBuilder(final ModelBuilder modelBuilder, final Model model, final String collectionUri) {
         this.parent = modelBuilder;
         this.model = model;
         resource = model.createResource(collectionUri).addProperty(RDF.type, SKOS.Collection);
@@ -70,8 +72,8 @@ public class CollectionBuilder {
         return this;
     }
 
-    public ContactPointCollectionBuilder contactPointBuilder() {
-        return new ContactPointCollectionBuilder(this);
+    public ContactPointBuilder contactPointBuilder() {
+        return new ContactPointBuilder(this);
     }
 
     public Model getModel() {

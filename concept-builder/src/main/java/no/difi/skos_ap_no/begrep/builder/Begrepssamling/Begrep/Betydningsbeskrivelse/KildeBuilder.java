@@ -1,7 +1,7 @@
-package no.difi.skos_ap_no.begrep.builder;
+package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse;
 
-import no.difi.skos_ap_no.concept.builder.DefinitionBuilder;
-import no.difi.skos_ap_no.concept.builder.SourceBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.DefinitionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.SourceBuilder;
 
 
 public class KildeBuilder {

@@ -1,6 +1,8 @@
-package no.difi.skos_ap_no.begrep.builder;
+package no.difi.skos_ap_no.begrep.builder.Begrepssamling;
 
-import no.difi.skos_ap_no.concept.builder.CollectionBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
+import no.difi.skos_ap_no.begrep.builder.ModellBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -14,7 +16,7 @@ public class BegrepssamlingBuilder {
     private CollectionBuilder collectionBuilder;
 
 
-    BegrepssamlingBuilder(final ModellBuilder modellBuilder, final ModelBuilder modelBuilder, final String identifikatorUri) {
+    public BegrepssamlingBuilder(final ModellBuilder modellBuilder, final ModelBuilder modelBuilder, final String identifikatorUri) {
         this.parent = modellBuilder;
         collectionBuilder = modelBuilder.collectionBuilder(identifikatorUri);
     }
@@ -43,8 +45,8 @@ public class BegrepssamlingBuilder {
         return this;
     }
     
-    public KontaktpunktBegrepssamlingBuilder kontaktpunktBuilder() {
-        return new KontaktpunktBegrepssamlingBuilder(this, collectionBuilder);
+    public KontaktpunktBuilder kontaktpunktBuilder() {
+        return new KontaktpunktBuilder(this, collectionBuilder);
     }
 
     public Model getModel() {

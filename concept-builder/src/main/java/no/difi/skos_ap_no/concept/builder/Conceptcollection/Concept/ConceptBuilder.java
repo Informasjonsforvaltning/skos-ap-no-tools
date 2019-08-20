@@ -1,5 +1,11 @@
-package no.difi.skos_ap_no.concept.builder;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept;
 
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.DefinitionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.AltLabelBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.HiddenLabelBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.PrefLabelBuilder;
+import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -15,7 +21,7 @@ public class ConceptBuilder {
     private Resource resource;
 
 
-    ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri) {
+    public ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri) {
         this.parent = collectionBuilder;
         this.model = model;
         resource = model.createResource(uri).addProperty(RDF.type, SKOS.Concept);
@@ -90,8 +96,8 @@ public class ConceptBuilder {
         return new PeriodOfTimeBuilder(this);
     }
 
-    public ContactPointConceptBuilder contactPointBuilder() {
-        return new ContactPointConceptBuilder(this);
+    public ContactPointBuilder contactPointBuilder() {
+        return new ContactPointBuilder(this);
     }
 
     public ConceptBuilder modified(final LocalDate date) {
