@@ -1,6 +1,7 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.SourcedescriptionBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
@@ -33,8 +34,8 @@ public class DefinitionBuilder {
         return resource;
     }
 
-    public SourceBuilder sourceBuilder() {
-        return new SourceBuilder(this);
+    public SourcedescriptionBuilder sourcedescriptionBuilder() {
+        return new SourcedescriptionBuilder(this);
     }
 
     public DefinitionBuilder text(final String text, final String language) {

@@ -1,7 +1,9 @@
 package no.difi.skos_ap_no.concept;
 
 
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Kildebeskrivelse.ForholdTilKilde;
 import no.difi.skos_ap_no.begrep.builder.ModellBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.SourceType;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.junit.jupiter.api.Test;
@@ -20,9 +22,12 @@ class ModelBuilderTest {
                 .conceptBuilder("http://my.org/concept/application")
                     .definitionBuilder()
                         .text("an application is a program", "en")
-                        .sourceBuilder()
-                            .label("see the law", "en")
-                            .seeAlso("https://lovdata.no/NL/lov/1980-02-08-2/5-1")
+                        .sourcedescriptionBuilder()
+                            .sourceBuilder()
+                                .label("see the law", "en")
+                                .seeAlso("https://lovdata.no/NL/lov/1980-02-08-2/5-1")
+                                .build()
+                            .sourcetype(SourceType.Source.BasedOn)
                             .build()
                         .audience("allmenheten", "nb")
                         .scopeNote("dette gjelder intill videre", "nb")
@@ -86,9 +91,12 @@ class ModelBuilderTest {
                 .begrepBuilder("http://my.org/concept/application")
                     .definisjonBuilder()
                         .tekst("an application is a program", "en")
-                        .kildeBuilder()
-                            .tekst("see the law", "en")
-                            .seOgså("https://lovdata.no/NL/lov/1980-02-08-2/5-1")
+                        .kildebeskrivelseBuilder()
+                            .kildeBuilder()
+                                .tekst("see the law", "en")
+                                .seOgså("https://lovdata.no/NL/lov/1980-02-08-2/5-1")
+                                .build()
+                            .forholdTilKilde(ForholdTilKilde.Forhold.BasertPåKilde)
                             .build()
                         .målgruppe("allmenheten", "nb")
                         .merknad("dette gjelder intill videre", "nb")

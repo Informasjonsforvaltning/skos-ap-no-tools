@@ -1,6 +1,7 @@
 package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse;
 
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Kildebeskrivelse.KildebeskrivelseBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.DefinitionBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
@@ -29,8 +30,8 @@ public class DefinisjonBuilder {
         return definitionBuilder.getResource();
     }
 
-    public KildeBuilder kildeBuilder() {
-        return new KildeBuilder(this, definitionBuilder);
+    public KildebeskrivelseBuilder kildebeskrivelseBuilder() {
+        return new KildebeskrivelseBuilder(this, definitionBuilder);
     }
 
     public DefinisjonBuilder tekst(final String tekst, final String språk) {

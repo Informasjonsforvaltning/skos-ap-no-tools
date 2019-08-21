@@ -1,36 +1,37 @@
-package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.URIText;
 
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.SourcedescriptionBuilder;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDFS;
 
 
-public class SourceBuilder {
+public class URITextBuilder {
 
-    private DefinitionBuilder parent;
+    private SourcedescriptionBuilder parent;
     private Resource resource;
 
 
-    SourceBuilder(final DefinitionBuilder parent) {
-        this.parent = parent;
+    public URITextBuilder(final SourcedescriptionBuilder sourcedescriptionBuilder) {
+        this.parent = sourcedescriptionBuilder;
         resource = parent.getModel().createResource();
     }
 
-    public SourceBuilder label(final String label, final String language) {
+    public URITextBuilder label(final String label, final String language) {
         if (label != null) {
             resource.addProperty(RDFS.label, label, language);
         }
         return this;
     }
 
-    public SourceBuilder seeAlso(final String seeAlsoUrl) {
+    public URITextBuilder seeAlso(final String seeAlsoUrl) {
         if (seeAlsoUrl != null) {
             resource.addProperty(RDFS.seeAlso, parent.getModel().createResource(seeAlsoUrl));
         }
         return this;
     }
 
-    public DefinitionBuilder build() {
+    public SourcedescriptionBuilder build() {
         parent.getResource().addProperty(DCTerms.source, resource);
         return parent;
     }
