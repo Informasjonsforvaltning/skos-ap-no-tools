@@ -102,9 +102,11 @@ class ModelBuilderTest {
         Model fasitModel = ModelFactory.createDefaultModel();
         fasitModel.read(resourceAsReader("fasit.ttl"), "", "text/turtle");
 
-        Writer writer = new StringWriter();
-        model.write(writer, "TURTLE");
-        Assert.isTrue(model.isIsomorphicWith(fasitModel), "\nModels are not isomorphic. Got actual:\n" + writer.toString());
+        if (!model.isIsomorphicWith(fasitModel)) {
+            Writer writer = new StringWriter();
+            model.write(writer, "TURTLE");
+            throw new RuntimeException("Models are not isomorphic. Got actual:\n\n" + writer.toString());
+        }
     }
 
     @Test
@@ -179,8 +181,10 @@ class ModelBuilderTest {
         Model fasitModel = ModelFactory.createDefaultModel();
         fasitModel.read(resourceAsReader("fasit.ttl"), "", "text/turtle");
 
-        Writer writer = new StringWriter();
-        model.write(writer, "TURTLE");
-        Assert.isTrue(model.isIsomorphicWith(fasitModel), "\nModels are not isomorphic. Got actual:\n" + writer.toString());
+        if (!model.isIsomorphicWith(fasitModel)) {
+            Writer writer = new StringWriter();
+            model.write(writer, "TURTLE");
+            throw new RuntimeException("Models are not isomorphic. Got actual:\n\n" + writer.toString());
+        }
     }
 }
