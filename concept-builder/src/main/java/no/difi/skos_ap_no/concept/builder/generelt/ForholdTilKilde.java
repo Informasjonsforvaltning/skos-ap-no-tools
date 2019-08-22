@@ -1,7 +1,7 @@
-package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Kildebeskrivelse;
+package no.difi.skos_ap_no.concept.builder.generelt;
 
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.SourceType;
 
+import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 
 public class ForholdTilKilde {
 

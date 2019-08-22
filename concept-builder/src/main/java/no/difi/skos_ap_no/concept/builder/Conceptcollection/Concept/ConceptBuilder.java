@@ -1,7 +1,8 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.DefinitionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.AlternativeWordingBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.DefinitionBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.AltLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.HiddenLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.PrefLabelBuilder;
@@ -34,8 +35,8 @@ public class ConceptBuilder {
         return new DefinitionBuilder(this, SKOSNO.Definisjon);
     }
 
-    public DefinitionBuilder alternativeDefinitionBuilder() {
-        return new DefinitionBuilder(this, SKOSNO.AlternativFormulering);
+    public AlternativeWordingBuilder alternativeWordingBuilder() {
+        return new AlternativeWordingBuilder(this, SKOSNO.AlternativFormulering);
     }
 
     public ConceptBuilder identifier(final String identifier) {

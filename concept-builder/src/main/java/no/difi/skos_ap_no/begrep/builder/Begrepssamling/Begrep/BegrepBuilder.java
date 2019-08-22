@@ -1,13 +1,12 @@
 package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep;
 
-import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.DefinisjonBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.DefinisjonBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.AnbefaltTermBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.FrarådetTermBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.TillattTermBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.BegrepssamlingBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
-import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.DCTerms;
@@ -64,11 +63,11 @@ public class BegrepBuilder {
     }
 
     public DefinisjonBuilder definisjonBuilder() {
-        return new DefinisjonBuilder(this, conceptBuilder, SKOSNO.Definisjon);
+        return new DefinisjonBuilder(this, conceptBuilder);
     }
 
     public DefinisjonBuilder alternativFormuleringBuilder() {
-        return new DefinisjonBuilder(this, conceptBuilder, SKOSNO.AlternativFormulering);
+        return new DefinisjonBuilder(this, conceptBuilder);
     }
 
     public GyldighetsperiodeBuilder gyldighetsperiodeBuilder() {

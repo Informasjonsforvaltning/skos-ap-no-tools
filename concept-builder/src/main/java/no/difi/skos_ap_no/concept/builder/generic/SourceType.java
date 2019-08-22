@@ -1,4 +1,4 @@
-package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription;
+package no.difi.skos_ap_no.concept.builder.generic;
 
 
 public class SourceType {

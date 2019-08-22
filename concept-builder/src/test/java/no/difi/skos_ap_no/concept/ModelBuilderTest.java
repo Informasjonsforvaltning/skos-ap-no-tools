@@ -1,9 +1,9 @@
 package no.difi.skos_ap_no.concept;
 
 
-import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Kildebeskrivelse.ForholdTilKilde;
+import no.difi.skos_ap_no.concept.builder.generelt.ForholdTilKilde;
 import no.difi.skos_ap_no.begrep.builder.ModellBuilder;
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.SourceType;
+import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ class ModelBuilderTest {
                         .scopeNote("dette gjelder intill videre", "nb")
                         .modified(LocalDate.of(2017, 10, 20))
                         .build()
-                    .alternativeDefinitionBuilder()
+                    .alternativeWordingBuilder()
                         .text("can be a program also", "en")
                         .build()
                     .subject("tjenester 3.0", "no")

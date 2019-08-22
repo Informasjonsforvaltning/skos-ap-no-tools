@@ -32,7 +32,7 @@ class ModelReaderTest {
                         .scopeNote("dette gjelder intill videre", "nb")
                         .modified(LocalDate.of(2017, 10, 20))
                         .build()
-                    .alternativeDefinitionBuilder()
+                    .alternativeWordingBuilder()
                         .text("can be a program also", "en")
                         .build()
                     .subject("tjenester 3.0", "no")

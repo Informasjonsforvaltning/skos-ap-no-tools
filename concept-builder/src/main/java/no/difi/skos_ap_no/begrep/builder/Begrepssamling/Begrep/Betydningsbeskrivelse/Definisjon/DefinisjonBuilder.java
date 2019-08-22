@@ -1,10 +1,10 @@
-package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse;
+package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon;
 
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
-import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Kildebeskrivelse.KildebeskrivelseBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.Kildebeskrivelse.KildebeskrivelseBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.URITekst.URITekstBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.DefinitionBuilder;
-import no.difi.skos_ap_no.concept.builder.SKOSNO;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.DefinitionBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 
@@ -17,9 +17,9 @@ public class DefinisjonBuilder {
     private DefinitionBuilder definitionBuilder;
 
 
-    public DefinisjonBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder, final Resource definitionClass) {
+    public DefinisjonBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
         this.parent = begrepBuilder;
-        definitionBuilder = definitionClass == SKOSNO.Definisjon ? conceptBuilder.definitionBuilder() : conceptBuilder.alternativeDefinitionBuilder();
+        definitionBuilder = conceptBuilder.definitionBuilder();
     }
 
     public Model getModel() {
@@ -47,6 +47,10 @@ public class DefinisjonBuilder {
     public DefinisjonBuilder målgruppe(final String tekst, final String språk) {
         definitionBuilder.audience(tekst, språk);
         return this;
+    }
+
+    public URITekstBuilder omfang() {
+        return new URITekstBuilder(this, definitionBuilder);
     }
 
     public DefinisjonBuilder sistOppdatert(final LocalDate dato) {
