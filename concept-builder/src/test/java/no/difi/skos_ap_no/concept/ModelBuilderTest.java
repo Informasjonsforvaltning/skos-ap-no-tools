@@ -6,11 +6,29 @@ import no.difi.skos_ap_no.begrep.builder.ModellBuilder;
 import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.RIOT;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.Assert;
 
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
 class ModelBuilderTest {
+
+    private Reader resourceAsReader(final String resourceName) {
+        return new InputStreamReader(getClass().getClassLoader().getResourceAsStream(resourceName), StandardCharsets.UTF_8);
+    }
+
+    @BeforeAll
+    static void init() {
+        RIOT.init();
+    }
 
     @Test
     void testBuilder() {
@@ -75,7 +93,12 @@ class ModelBuilderTest {
                 .build()
             .build();
 
-        //model.write(System.out, "TURTLE");
+        Model fasitModel = ModelFactory.createDefaultModel();
+        fasitModel.read(resourceAsReader("fasit.ttl"), "", "text/turtle");
+
+        Writer writer = new StringWriter();
+        model.write(writer, "TURTLE");
+        Assert.isTrue(model.isIsomorphicWith(fasitModel), "\nModels are not isomorphic. Got actual:\n" + writer.toString());
     }
 
     @Test
@@ -145,6 +168,11 @@ class ModelBuilderTest {
                 .build()
             .build();
 
-        //model.write(System.out, "TURTLE");
+        Model fasitModel = ModelFactory.createDefaultModel();
+        fasitModel.read(resourceAsReader("fasit.ttl"), "", "text/turtle");
+
+        Writer writer = new StringWriter();
+        model.write(writer, "TURTLE");
+        Assert.isTrue(model.isIsomorphicWith(fasitModel), "\nModels are not isomorphic. Got actual:\n" + writer.toString());
     }
 }

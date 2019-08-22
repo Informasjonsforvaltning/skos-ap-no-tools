@@ -5,7 +5,7 @@ public class SourceType {
 
     public enum Source {
         QuoteFrom("skosno:sitatFraKilde"),
-        BasedOn("skosno:basertPåKilde "),
+        BasedOn("skosno:basertPåKilde"),
         Userdefined("skosno:egendefinert");
 
         private String uri;

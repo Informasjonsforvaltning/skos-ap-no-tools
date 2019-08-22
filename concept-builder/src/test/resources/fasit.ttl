@@ -1,0 +1,85 @@
+@prefix schema: <http://schema.org/> .
+@prefix iso:   <http://iso.org/25012/2008/dataquality/> .
+@prefix spdx:  <http://spdx.org/rdf/terms#> .
+@prefix adms:  <http://www.w3.org/ns/adms#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix skosno: <http://difi.no/skosno#> .
+@prefix dqv:   <http://www.w3.org/ns/dqv#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xkos:  <http://rdf-vocabulary.ddialliance.org/xkos#> .
+@prefix oa:    <http://www.w3.org/ns/prov#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcatno: <http://difi.no/dcatno#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+<https://my.org/concept/rest>
+        a                 skos:Concept ;
+        dct:identifier    "https://my.org/concept/rest" ;
+        dct:isReplacedBy  "http://my.org/collectino/first" ;
+        dct:publisher     <https://data.brreg.no/enhetsregisteret/api/enheter/123456789> ;
+        dct:replaces      "https://my.org/concept/term" ;
+        skosxl:altLabel   [ a                   skosxl:Label ;
+                            skosxl:literalForm  "Representational State Transfer"@en
+                          ] .
+
+<http://my.org/concept/application>
+        a                             skos:Concept ;
+        skosno:betydningsbeskrivelse  [ a           skosno:AlternativFormulering ;
+                                        rdfs:label  "can be a program also"@en
+                                      ] ;
+        skosno:betydningsbeskrivelse  [ a                             skosno:Definisjon ;
+                                        rdfs:label                    "an application is a program"@en ;
+                                        skosno:betydningsbeskrivelse  [ skosno:forholdTilKilde  <skosno:basertPåKilde> ;
+                                                                        dct:source              [ rdfs:label    "see the law"@en ;
+                                                                                                  rdfs:seeAlso  <https://lovdata.no/NL/lov/1980-02-08-2/5-1>
+                                                                                                ]
+                                                                      ] ;
+                                        dct:audience                  "allmenheten"@nb ;
+                                        dct:modified                  "2017-10-20"^^xsd:date ;
+                                        skos:scopeNote                "dette gjelder intill videre"@nb
+                                      ] ;
+        dct:identifier                "t3:application" ;
+        dct:modified                  "2019-08-22"^^xsd:date ;
+        dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/123456789> ;
+        dct:subject                   "tjenester 3.0"@no ;
+        dct:temporal                  [ a                 dct:PeriodOfTime ;
+                                        schema:endDate    "2017-12-31"^^xsd:date ;
+                                        schema:startDate  "2017-01-01"^^xsd:date
+                                      ] ;
+        skosxl:altLabel               [ a                   skosxl:Label ;
+                                        skosxl:literalForm  "app"@en
+                                      ] ;
+        skosxl:hiddenLabel            [ a                   skosxl:Label ;
+                                        skosxl:literalForm  "tjeneste"@no , "service"@en
+                                      ] ;
+        skosxl:prefLabel              [ a                   skosxl:Label ;
+                                        skosxl:literalForm  "applikasjon"@no , "application"@en
+                                      ] ;
+        dcat:contactPoint             [ a                          vcard:Organization ;
+                                        vcard:hasEmail             <mailto:æ%7Dme@org.no> ;
+                                        vcard:hasOrganizationUnit  "Contact Dep" ;
+                                        vcard:hasTelephone         <tel:+4755555555>
+                                      ] .
+
+<http://my.org/collectino/first>
+        a               skos:Collection ;
+        rdfs:label      "Collection1" ;
+        dct:identifier  "http://my.org/collectino/first" ;
+        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/123456789> ;
+        dct:replaces    "https://my.org/concept/rest" ;
+        skos:member     <https://my.org/concept/rest> , <https://my.org/concept/term> , <http://my.org/concept/application> .
+
+<https://my.org/concept/term>
+        a                 skos:Concept ;
+        dct:identifier    "https://my.org/concept/term" ;
+        dct:isReplacedBy  "https://my.org/concept/rest" ;
+        dct:publisher     <https://data.brreg.no/enhetsregisteret/api/enheter/123456789> ;
+        skosxl:prefLabel  [ a                   skosxl:Label ;
+                            skosxl:literalForm  "term"@en
+                          ] .
