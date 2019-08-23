@@ -21,10 +21,10 @@ public class DefinitionBuilder {
     private Resource resource;
 
 
-    public DefinitionBuilder(final ConceptBuilder conceptBuilder, final Resource definitionClass) {
+    public DefinitionBuilder(final ConceptBuilder conceptBuilder) {
         parent = conceptBuilder;
         model = conceptBuilder.getModel();
-        resource = model.createResource(definitionClass);
+        resource = model.createResource(SKOSNO.Definisjon);
     }
 
     public Model getModel() {

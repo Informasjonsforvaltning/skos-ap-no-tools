@@ -1,5 +1,6 @@
 package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep;
 
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.AlternativFormulering.AlternativFormuleringBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.DefinisjonBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.AnbefaltTermBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.FrarådetTermBuilder;
@@ -66,8 +67,8 @@ public class BegrepBuilder {
         return new DefinisjonBuilder(this, conceptBuilder);
     }
 
-    public DefinisjonBuilder alternativFormuleringBuilder() {
-        return new DefinisjonBuilder(this, conceptBuilder);
+    public AlternativFormuleringBuilder alternativFormuleringBuilder() {
+        return new AlternativFormuleringBuilder(this, conceptBuilder);
     }
 
     public GyldighetsperiodeBuilder gyldighetsperiodeBuilder() {

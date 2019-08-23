@@ -32,11 +32,11 @@ public class ConceptBuilder {
     }
 
     public DefinitionBuilder definitionBuilder() {
-        return new DefinitionBuilder(this, SKOSNO.Definisjon);
+        return new DefinitionBuilder(this);
     }
 
     public AlternativeWordingBuilder alternativeWordingBuilder() {
-        return new AlternativeWordingBuilder(this, SKOSNO.AlternativFormulering);
+        return new AlternativeWordingBuilder(this);
     }
 
     public ConceptBuilder identifier(final String identifier) {

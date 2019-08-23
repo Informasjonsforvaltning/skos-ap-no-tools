@@ -16,7 +16,7 @@ public class AlternativFormuleringBuilder {
     private AlternativeWordingBuilder alternativeWordingBuilder;
 
 
-    public AlternativFormuleringBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder, final Resource definitionClass) {
+    public AlternativFormuleringBuilder(final BegrepBuilder begrepBuilder, final ConceptBuilder conceptBuilder) {
         this.parent = begrepBuilder;
         alternativeWordingBuilder = conceptBuilder.alternativeWordingBuilder();
     }

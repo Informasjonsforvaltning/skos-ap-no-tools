@@ -5,12 +5,19 @@ import no.difi.skos_ap_no.concept.builder.generelt.ForholdTilKilde;
 import no.difi.skos_ap_no.begrep.builder.ModellBuilder;
 import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
+import org.apache.jena.graph.Graph;
+import org.apache.jena.graph.GraphUtil;
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.Triple;
+import org.apache.jena.graph.impl.GraphMatcher;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RIOT;
+import org.apache.jena.shared.PrefixMapping;
+import org.apache.jena.util.CollectionFactory;
+import org.apache.jena.util.iterator.ExtendedIterator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -18,6 +25,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.util.Map;
 
 class ModelBuilderTest {
 
@@ -35,7 +43,7 @@ class ModelBuilderTest {
 
         Model model =
                 ModelBuilder.builder()
-                    .collectionBuilder("http://my.org/collectino/first")
+                    .collectionBuilder("http://my.org/collection/first")
                         .name("CollectionName1")
                         .publisher("Publisher1")
                         .description("Description1")
@@ -114,7 +122,7 @@ class ModelBuilderTest {
 
         Model model =
                 ModellBuilder.builder()
-                    .begrepssamlingBuilder("http://my.org/collectino/first")
+                    .begrepssamlingBuilder("http://my.org/collection/first")
                         .navn("CollectionName1")
                         .ansvarligVirksomhet("Publisher1")
                         .beskrivelse("Description1")
@@ -187,4 +195,5 @@ class ModelBuilderTest {
             throw new RuntimeException("Models are not isomorphic. Got actual:\n\n" + writer.toString());
         }
     }
+
 }

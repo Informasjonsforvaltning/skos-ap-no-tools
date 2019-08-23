@@ -21,10 +21,10 @@ public class AlternativeWordingBuilder {
     private Resource resource;
 
 
-    public AlternativeWordingBuilder(final ConceptBuilder conceptBuilder, final Resource definitionClass) {
+    public AlternativeWordingBuilder(final ConceptBuilder conceptBuilder) {
         parent = conceptBuilder;
         model = conceptBuilder.getModel();
-        resource = model.createResource(definitionClass);
+        resource = model.createResource(SKOSNO.AlternativFormulering);
     }
 
     public Model getModel() {
