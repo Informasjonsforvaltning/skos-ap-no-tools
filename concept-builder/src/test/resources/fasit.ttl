@@ -18,7 +18,13 @@
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-<Concept1>  a                         skos:Concept ;
+<http://my.org/concept/Concept2>
+        a               skos:Concept ;
+        dct:identifier  "http://my.org/concept/Concept2" ;
+        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+
+<http://my.org/concept/Concept1>
+        a                             skos:Concept ;
         skosno:betydningsbeskrivelse  [ a           skosno:AlternativFormulering ;
                                         rdfs:label  "AlternativeWording1"@en
                                       ] ;
@@ -34,7 +40,7 @@
                                         skos:scopeNote                "Merknad1"@nb , "ScopeNote1"@en
                                       ] ;
         skosno:bruksområde            "bruksområde1"@nb , "domainOfUse1"@en ;
-        dct:identifier                "Concept1" ;
+        dct:identifier                "http://my.org/concept/Concept1" ;
         dct:modified                  "2019-08-22"^^xsd:date ;
         dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1.1> ;
         dct:subject                   "Subject1"@en , "Fagområde1"@nb ;
@@ -58,17 +64,13 @@
                                         vcard:hasTelephone         <tel:11>
                                       ] .
 
-<Concept2>  a           skos:Concept ;
-        dct:identifier  "Concept2" ;
-        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
-
 <http://my.org/collection/first>
         a                  skos:Collection ;
         rdfs:label         "CollectionName1" ;
         dct:description    "Description1" ;
         dct:identifier     "http://my.org/collection/first" ;
         dct:publisher      <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> ;
-        skos:member        <Concept2> , <Concept1> ;
+        skos:member        <http://my.org/concept/Concept2> , <http://my.org/concept/Concept1> ;
         dcat:contactPoint  [ a                          vcard:Organization ;
                              vcard:hasEmail             <mailto:org1@invalid.org> ;
                              vcard:hasOrganizationUnit  "ContactPointOrg1" ;
