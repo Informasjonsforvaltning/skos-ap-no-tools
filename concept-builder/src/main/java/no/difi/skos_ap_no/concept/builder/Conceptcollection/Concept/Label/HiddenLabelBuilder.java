@@ -1,6 +1,7 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.DCTerms;
@@ -29,7 +30,7 @@ public class HiddenLabelBuilder {
 
     public HiddenLabelBuilder modified(final LocalDate date) {
         if (date != null) {
-            resource.addProperty(DCTerms.modified, parent.getModel().createTypedLiteral(date, XSDDateType.XSDdate));
+            resource.addProperty(DCTerms.modified, parent.getModel().createTypedLiteral(LocalDateToXSDDateTime.toXSDDate(date), XSDDateType.XSDdate));
         }
         return this;
     }

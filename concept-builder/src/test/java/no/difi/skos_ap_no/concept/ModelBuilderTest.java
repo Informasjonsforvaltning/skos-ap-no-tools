@@ -1,21 +1,12 @@
 package no.difi.skos_ap_no.concept;
 
-
 import no.difi.skos_ap_no.concept.builder.generelt.ForholdTilKilde;
 import no.difi.skos_ap_no.begrep.builder.ModellBuilder;
 import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
-import org.apache.jena.graph.Graph;
-import org.apache.jena.graph.GraphUtil;
-import org.apache.jena.graph.Node;
-import org.apache.jena.graph.Triple;
-import org.apache.jena.graph.impl.GraphMatcher;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RIOT;
-import org.apache.jena.shared.PrefixMapping;
-import org.apache.jena.util.CollectionFactory;
-import org.apache.jena.util.iterator.ExtendedIterator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +16,6 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.util.Map;
 
 class ModelBuilderTest {
 

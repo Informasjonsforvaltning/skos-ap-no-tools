@@ -4,6 +4,7 @@ import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuild
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.SourceDescription.SourcedescriptionBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.URIText.URITextBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
+import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -66,7 +67,7 @@ public class AlternativeWordingBuilder {
 
     public AlternativeWordingBuilder modified(final LocalDate date) {
         if (date != null) {
-            resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
+            resource.addProperty(DCTerms.modified, model.createTypedLiteral(LocalDateToXSDDateTime.toXSDDate(date), XSDDateType.XSDdate));
         }
         return this;
     }

@@ -1,6 +1,7 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept;
 
 import no.difi.skos_ap_no.concept.builder.Schema;
+import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -35,11 +36,11 @@ public class PeriodOfTimeBuilder {
         Resource validPeriodOfTimeResource = model.createResource(DCTerms.PeriodOfTime);
 
         if (validFromIncluding != null) {
-            validPeriodOfTimeResource.addProperty(Schema.startDate, model.createTypedLiteral(validFromIncluding, XSDDateType.XSDdate));
+            validPeriodOfTimeResource.addProperty(Schema.startDate, model.createTypedLiteral(LocalDateToXSDDateTime.toXSDDate(validFromIncluding), XSDDateType.XSDdate));
         }
 
         if (validToIncluding != null) {
-            validPeriodOfTimeResource.addProperty(Schema.endDate, model.createTypedLiteral(validToIncluding, XSDDateType.XSDdate));
+            validPeriodOfTimeResource.addProperty(Schema.endDate, model.createTypedLiteral(LocalDateToXSDDateTime.toXSDDate(validToIncluding), XSDDateType.XSDdate));
         }
 
         parent.getResource().addProperty(DCTerms.temporal, validPeriodOfTimeResource);

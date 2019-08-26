@@ -7,6 +7,7 @@ import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.AltLab
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.HiddenLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.PrefLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
+import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -106,7 +107,7 @@ public class ConceptBuilder {
             resource.removeAll(DCTerms.modified);
         }
         if (date != null) {
-            resource.addProperty(DCTerms.modified, model.createTypedLiteral(date, XSDDateType.XSDdate));
+            resource.addProperty(DCTerms.modified, model.createTypedLiteral(LocalDateToXSDDateTime.toXSDDate(date), XSDDateType.XSDdate));
         }
         return this;
     }
