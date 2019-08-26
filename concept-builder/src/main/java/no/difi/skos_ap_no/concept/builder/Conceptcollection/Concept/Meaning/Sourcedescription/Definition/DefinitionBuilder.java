@@ -61,8 +61,8 @@ public class DefinitionBuilder {
         return this;
     }
 
-    public URITextBuilder scope() {
-        return new URITextBuilder(this);
+    public URITextBuilder scopeBuilder() {
+        return new URITextBuilder(this, SKOSNO.omfang);
     }
 
     public DefinitionBuilder modified(final LocalDate date) {

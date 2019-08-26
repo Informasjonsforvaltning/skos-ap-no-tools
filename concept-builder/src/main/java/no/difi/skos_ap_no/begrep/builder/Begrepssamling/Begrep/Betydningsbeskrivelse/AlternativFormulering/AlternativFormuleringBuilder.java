@@ -2,6 +2,7 @@ package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskri
 
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.AlternativFormulering.Kildebeskrivelse.KildebeskrivelseBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.AlternativFormulering.URITekst.URITekstBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.AlternativeWordingBuilder;
 import org.apache.jena.rdf.model.Model;
@@ -46,6 +47,10 @@ public class AlternativFormuleringBuilder {
     public AlternativFormuleringBuilder målgruppe(final String tekst, final String språk) {
         alternativeWordingBuilder.audience(tekst, språk);
         return this;
+    }
+
+    public URITekstBuilder omfangBuilder() {
+        return new URITekstBuilder(this, alternativeWordingBuilder);
     }
 
     public AlternativFormuleringBuilder sistOppdatert(final LocalDate dato) {

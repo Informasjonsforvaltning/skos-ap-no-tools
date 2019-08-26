@@ -61,8 +61,8 @@ public class AlternativeWordingBuilder {
         return this;
     }
 
-    public URITextBuilder scope() {
-        return new URITextBuilder(this);
+    public URITextBuilder scopeBuilder() {
+        return new URITextBuilder(this, SKOSNO.omfang);
     }
 
     public AlternativeWordingBuilder modified(final LocalDate date) {

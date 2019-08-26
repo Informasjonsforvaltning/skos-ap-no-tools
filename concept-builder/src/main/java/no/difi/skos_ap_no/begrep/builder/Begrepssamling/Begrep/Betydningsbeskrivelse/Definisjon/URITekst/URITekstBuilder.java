@@ -13,7 +13,7 @@ public class URITekstBuilder extends no.difi.skos_ap_no.concept.builder.generelt
 
     public URITekstBuilder(final DefinisjonBuilder definisjonBuilder, final DefinitionBuilder definitionBuilder) {
         this.parent = definisjonBuilder;
-        uriTextBuilder = definitionBuilder.scope();
+        uriTextBuilder = definitionBuilder.scopeBuilder();
     }
 
     public DefinisjonBuilder build() {

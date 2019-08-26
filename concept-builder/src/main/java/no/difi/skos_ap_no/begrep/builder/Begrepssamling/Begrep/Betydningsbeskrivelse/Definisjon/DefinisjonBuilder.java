@@ -49,7 +49,7 @@ public class DefinisjonBuilder {
         return this;
     }
 
-    public URITekstBuilder omfang() {
+    public URITekstBuilder omfangBuilder() {
         return new URITekstBuilder(this, definitionBuilder);
     }
 
