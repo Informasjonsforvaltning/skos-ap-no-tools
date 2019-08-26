@@ -23,7 +23,7 @@ public class FrarådetTermBuilder {
         return this;
     }
 
-    public FrarådetTermBuilder modified(final LocalDate date) {
+    public FrarådetTermBuilder sistOppdatert(final LocalDate date) {
         hiddenLabelBuilder.modified(date);
         return this;
     }

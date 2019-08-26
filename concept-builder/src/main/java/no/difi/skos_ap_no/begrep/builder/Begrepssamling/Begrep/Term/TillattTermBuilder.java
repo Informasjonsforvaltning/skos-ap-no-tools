@@ -3,6 +3,7 @@ package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.AltLabelBuilder;
+import no.difi.skos_ap_no.concept.builder.generelt.MålgruppeType;
 
 import java.time.LocalDate;
 
@@ -23,8 +24,13 @@ public class TillattTermBuilder {
         return this;
     }
 
-    public TillattTermBuilder modified(final LocalDate date) {
+    public TillattTermBuilder sistOppdatert(final LocalDate date) {
         altLabelBuilder.modified(date);
+        return this;
+    }
+
+    public TillattTermBuilder målgruppe(final MålgruppeType.Målgruppe målgruppe) {
+        altLabelBuilder.audience(målgruppe.toAudience());
         return this;
     }
 

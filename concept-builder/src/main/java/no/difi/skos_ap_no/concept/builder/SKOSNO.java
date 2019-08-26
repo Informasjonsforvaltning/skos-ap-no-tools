@@ -17,6 +17,9 @@ public class SKOSNO {
     public static Property forholdTilKilde = model.createProperty(NS, "forholdTilKilde");
     public static Property omfang = model.createProperty(NS, "omfang");
 
+    public static Property allmennheten = model.createProperty(NS, "allmennheten");
+    public static Property fagspesialist = model.createProperty(NS, "fagspesialist");
+
     public static Resource Definisjon = model.createResource(NS + "Definisjon");
     public static Resource AlternativFormulering = model.createResource(NS + "AlternativFormulering");
 

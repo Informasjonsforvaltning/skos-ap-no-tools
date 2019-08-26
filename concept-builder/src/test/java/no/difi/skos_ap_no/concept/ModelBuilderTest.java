@@ -1,7 +1,9 @@
 package no.difi.skos_ap_no.concept;
 
-import no.difi.skos_ap_no.concept.builder.generelt.ForholdTilKilde;
+import no.difi.skos_ap_no.concept.builder.generelt.ForholdTilKildeType;
 import no.difi.skos_ap_no.begrep.builder.ModellBuilder;
+import no.difi.skos_ap_no.concept.builder.generelt.MålgruppeType;
+import no.difi.skos_ap_no.concept.builder.generic.AudienceType;
 import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
@@ -66,6 +68,7 @@ class ModelBuilderTest {
                             .altLabelBuilder()
                                 .label("AltLabel1", "en")
                                 .label("TillattTerm1", "nb")
+                                .audience(AudienceType.Audience.Public)
                                 .build()
                             .hiddenLabelBuilder()
                                 .label("HiddenLabel1", "en")
@@ -150,6 +153,7 @@ class ModelBuilderTest {
                             .tillattTermBuilder()
                                 .term("AltLabel1", "en")
                                 .term("TillattTerm1", "nb")
+                                .målgruppe(MålgruppeType.Målgruppe.Allmennheten)
                                 .build()
                             .frarådetTermBuilder()
                                 .term("HiddenLabel1", "en")
@@ -164,7 +168,7 @@ class ModelBuilderTest {
                                         .tekst("Source1", "en")
                                         .tekst("Kilde1", "nb")
                                         .build()
-                                    .forholdTilKilde(ForholdTilKilde.Forhold.BasertPåKilde)
+                                    .forholdTilKilde(ForholdTilKildeType.ForholdTilKilde.BasertPåKilde)
                                     .build()
                                 .merknad("ScopeNote1", "en")
                                 .merknad("Merknad1", "nb")

@@ -1,11 +1,11 @@
 package no.difi.skos_ap_no.concept.builder.generelt;
 
-
 import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 
-public class ForholdTilKilde {
 
-    public enum Forhold {
+public class ForholdTilKildeType {
+
+    public enum ForholdTilKilde {
         SitatFraKilde,
         BasertPåKilde,
         Egendefinert;

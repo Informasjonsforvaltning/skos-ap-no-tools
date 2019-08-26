@@ -4,7 +4,7 @@ import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskriv
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.Kildebeskrivelse.URITekst.URITekstBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.DefinitionBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.SourceDescription.SourcedescriptionBuilder;
-import no.difi.skos_ap_no.concept.builder.generelt.ForholdTilKilde;
+import no.difi.skos_ap_no.concept.builder.generelt.ForholdTilKildeType;
 
 
 public class KildebeskrivelseBuilder {
@@ -22,7 +22,7 @@ public class KildebeskrivelseBuilder {
         return new URITekstBuilder(this, sourcedescriptionBuilder);
     }
 
-    public KildebeskrivelseBuilder forholdTilKilde(final ForholdTilKilde.Forhold forhold) {
+    public KildebeskrivelseBuilder forholdTilKilde(final ForholdTilKildeType.ForholdTilKilde forhold) {
         sourcedescriptionBuilder.sourcetype(forhold.toSource());
         return this;
     }

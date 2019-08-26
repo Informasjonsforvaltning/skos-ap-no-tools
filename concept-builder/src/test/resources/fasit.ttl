@@ -52,6 +52,7 @@
                                         schema:startDate  "2017-10-20"^^xsd:date
                                       ] ;
         skosxl:altLabel               [ a                   skosxl:Label ;
+                                        dct:audience        <skosno:allmennheten> ;
                                         skosxl:literalForm  "TillattTerm1"@nb , "AltLabel1"@en
                                       ] ;
         skosxl:hiddenLabel            [ a                   skosxl:Label ;
