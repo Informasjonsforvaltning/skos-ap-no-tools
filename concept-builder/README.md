@@ -195,21 +195,6 @@ Takes a Jena Model object and extracts the concepts in the RDF model.
 ]
 ```
 
-## Read from file
-
-```java
-        Model model = ModelFactory.createDefaultModel();
-
-        model.read("concept-model.ttl");
-
-        List<Concept> concepts = new ModelReader(model).getConcepts();
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        System.out.println(gson.toJson(concepts));
-`
-```
-
 # Usage
 
 Our goal is to publish this library to a official Maven repository. However, we are not there yet. Therefore you must include our jar in your project by following these steps:

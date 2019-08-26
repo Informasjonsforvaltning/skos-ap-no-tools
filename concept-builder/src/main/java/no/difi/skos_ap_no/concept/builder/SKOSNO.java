@@ -8,7 +8,7 @@ import org.apache.jena.rdf.model.Resource;
 
 public class SKOSNO {
 
-    private static String NS = "http://difi.no/skosno#";
+    public static String NS = "http://difi.no/skosno#";
 
     private static Model model = ModelFactory.createDefaultModel();
 

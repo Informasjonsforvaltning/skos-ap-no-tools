@@ -1,11 +1,13 @@
 package no.difi.skos_ap_no.concept.builder.generic;
 
 
+import no.difi.skos_ap_no.concept.builder.SKOSNO;
+
 public class AudienceType {
 
     public enum Audience {
-        Public("skosno:allmennheten"),
-        Specialist("skosno:fagspesialist");
+        Public(SKOSNO.NS + "allmennheten"),
+        Specialist(SKOSNO.NS + "fagspesialist");
 
         private String uri;
 
@@ -16,6 +18,15 @@ public class AudienceType {
         @Override
         public String toString() {
             return uri;
+        }
+
+        public Audience fromString(final String uri) {
+            if (Public.uri.equals(uri)) {
+                return Public;
+            } else if (Specialist.uri.equals(uri)) {
+                return Specialist;
+            }
+            return null;
         }
     }
 
