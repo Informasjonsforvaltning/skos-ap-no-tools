@@ -5,6 +5,7 @@ import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskriv
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.URITekst.URITekstBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.DefinitionBuilder;
+import no.difi.skos_ap_no.concept.builder.generelt.MålgruppeType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 
@@ -44,8 +45,8 @@ public class DefinisjonBuilder {
         return this;
     }
 
-    public DefinisjonBuilder målgruppe(final String tekst, final String språk) {
-        definitionBuilder.audience(tekst, språk);
+    public DefinisjonBuilder målgruppe(final MålgruppeType.Målgruppe målgruppe) {
+        definitionBuilder.audience(målgruppe.toAudience());
         return this;
     }
 

@@ -35,7 +35,7 @@
                                         skosno:omfang                 [ rdfs:label    "omfangTekst1"@nb , "scopeLabel1"@en ;
                                                                         rdfs:seeAlso  <http://invalid.org/scope/Scope1>
                                                                       ] ;
-                                        dct:audience                  "Audience1"@en , "Målgruppe1"@nb ;
+                                        dct:audience                  <skosno:fagspesialist> ;
                                         dct:modified                  "2018-10-31"^^xsd:date ;
                                         skos:scopeNote                "ScopeNote1"@en , "Merknad1"@nb
                                       ] ;

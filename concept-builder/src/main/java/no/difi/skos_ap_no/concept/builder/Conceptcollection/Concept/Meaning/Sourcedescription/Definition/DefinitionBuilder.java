@@ -4,6 +4,7 @@ import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuild
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.SourceDescription.SourcedescriptionBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.URIText.URITextBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
+import no.difi.skos_ap_no.concept.builder.generic.AudienceType;
 import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
@@ -54,10 +55,8 @@ public class DefinitionBuilder {
         return this;
     }
 
-    public DefinitionBuilder audience(final String audienceText, final String language) {
-        if (audienceText != null) {
-            resource.addProperty(DCTerms.audience, audienceText, language);
-        }
+    public DefinitionBuilder audience(final AudienceType.Audience audience) {
+        resource.addProperty(DCTerms.audience, parent.getModel().createResource(audience.toString()));
         return this;
     }
 

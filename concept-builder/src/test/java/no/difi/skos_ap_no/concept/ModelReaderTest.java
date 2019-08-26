@@ -3,6 +3,7 @@ package no.difi.skos_ap_no.concept;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import no.difi.skos_ap_no.concept.builder.ModelBuilder;
+import no.difi.skos_ap_no.concept.builder.generic.AudienceType;
 import no.difi.skos_ap_no.concept.reader.ModelReader;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -28,7 +29,7 @@ class ModelReaderTest {
                                 .seeAlso("https://lovdata.no/NL/lov/1980-02-08-2/5-1")
                                 .build()
                             .build()
-                        .audience("allmenheten", "nb")
+                        .audience(AudienceType.Audience.Public)
                         .scopeNote("dette gjelder intill videre", "nb")
                         .modified(LocalDate.of(2017, 10, 20))
                         .build()
