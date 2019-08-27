@@ -117,6 +117,13 @@ public class ConceptBuilder {
         return this;
     }
 
+    public ConceptBuilder seeAlso(final String uri) {
+        if (uri != null) {
+            resource.addProperty(RDFS.seeAlso, uri);
+        }
+        return this;
+    }
+
     public ConceptBuilder replaces(final String uri) {
         if (uri != null) {
             resource.addProperty(DCTerms.replaces, uri);

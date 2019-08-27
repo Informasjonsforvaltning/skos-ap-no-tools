@@ -40,6 +40,11 @@ public class DefinisjonBuilder {
         return this;
     }
 
+    public DefinisjonBuilder eksempel(final String tekst, final String språk) {
+        definitionBuilder.example(tekst, språk);
+        return this;
+    }
+
     public DefinisjonBuilder merknad(final String tekst, final String språk) {
         definitionBuilder.scopeNote(tekst, språk);
         return this;

@@ -89,6 +89,11 @@ public class BegrepBuilder {
         return this;
     }
 
+    public BegrepBuilder seOgså(final String identifikatorUri) {
+        conceptBuilder.seeAlso(identifikatorUri);
+        return this;
+    }
+
     public BegrepBuilder erstatter(final String identifikatorUri) {
         conceptBuilder.replaces(identifikatorUri);
         return this;

@@ -48,6 +48,13 @@ public class DefinitionBuilder {
         return this;
     }
 
+    public DefinitionBuilder example(final String exampleText, final String language) {
+        if (exampleText != null) {
+            resource.addProperty(SKOS.example, exampleText, language);
+        }
+        return this;
+    }
+
     public DefinitionBuilder scopeNote(final String scopeText, final String language) {
         if (scopeText != null) {
             resource.addProperty(SKOS.scopeNote, scopeText, language);

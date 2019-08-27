@@ -48,6 +48,13 @@ public class AlternativeWordingBuilder {
         return this;
     }
 
+    public AlternativeWordingBuilder example(final String exampleText, final String language) {
+        if (exampleText != null) {
+            resource.addProperty(SKOS.example, exampleText, language);
+        }
+        return this;
+    }
+
     public AlternativeWordingBuilder scopeNote(final String scopeText, final String language) {
         if (scopeText != null) {
             resource.addProperty(SKOS.scopeNote, scopeText, language);

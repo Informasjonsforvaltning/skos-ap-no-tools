@@ -20,6 +20,7 @@
 
 <http://my.org/concept/Concept2>
         a               skos:Concept ;
+        rdfs:seeAlso    "http://my.org/concept/Concept1" ;
         dct:identifier  "http://my.org/concept/Concept2" ;
         dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
@@ -37,6 +38,7 @@
                                                                       ] ;
                                         dct:audience                  skosno:fagspesialist ;
                                         dct:modified                  "2018-10-31"^^xsd:date ;
+                                        skos:example                  "Eksempel"@nb , "Example1"@en ;
                                         skos:scopeNote                "ScopeNote1"@en , "Merknad1"@nb
                                       ] ;
         skosno:betydningsbeskrivelse  [ a           skosno:AlternativFormulering ;

@@ -40,6 +40,11 @@ public class AlternativFormuleringBuilder {
         return this;
     }
 
+    public AlternativFormuleringBuilder eksempel(final String tekst, final String språk) {
+        alternativeWordingBuilder.example(tekst, språk);
+        return this;
+    }
+
     public AlternativFormuleringBuilder merknad(final String tekst, final String språk) {
         alternativeWordingBuilder.scopeNote(tekst, språk);
         return this;

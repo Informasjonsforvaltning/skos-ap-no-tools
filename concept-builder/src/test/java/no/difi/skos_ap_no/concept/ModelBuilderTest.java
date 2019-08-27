@@ -89,6 +89,8 @@ class ModelBuilderTest {
                                         .build()
                                     .sourcetype(SourceType.Source.BasedOn)
                                     .build()
+                                .example("Example1", "en")
+                                .example("Eksempel", "nb")
                                 .scopeNote("ScopeNote1", "en")
                                 .scopeNote("Merknad1", "nb")
                                 .audience(AudienceType.Audience.Specialist)
@@ -104,6 +106,7 @@ class ModelBuilderTest {
                                 .build()
                             .build()
                         .conceptBuilder("http://my.org/concept/Concept2")
+                            .seeAlso("http://my.org/concept/Concept1")
                             .build()
                         .build()
                     .build();
@@ -177,6 +180,8 @@ class ModelBuilderTest {
                                         .build()
                                     .forholdTilKilde(ForholdTilKildeType.ForholdTilKilde.BasertPåKilde)
                                     .build()
+                                .eksempel("Example1", "en")
+                                .eksempel("Eksempel", "nb")
                                 .merknad("ScopeNote1", "en")
                                 .merknad("Merknad1", "nb")
                                 .målgruppe(MålgruppeType.Målgruppe.Fagspesialist)
@@ -192,6 +197,7 @@ class ModelBuilderTest {
                                 .build()
                             .build()
                         .begrepBuilder("http://my.org/concept/Concept2")
+                            .seOgså("http://my.org/concept/Concept1")
                             .build()
                         .build()
                     .build();
