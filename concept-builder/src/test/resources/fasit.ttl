@@ -26,6 +26,18 @@
 
 <http://my.org/concept/Concept1>
         a                             skos:Concept ;
+        skosno:begrepsrelasjon        [ a                skosno:AssosiativRelasjon ;
+                                        dct:description  "beskrivelse"@nb , "description"@en ;
+                                        dct:modified     "2019-08-19"^^xsd:date
+                                      ] ;
+        skosno:begrepsrelasjon        [ a                           skosno:GeneriskRelasjon ;
+                                        skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
+                                        dct:modified                "2019-08-20"^^xsd:date
+                                      ] ;
+        skosno:begrepsrelasjon        [ a                           skosno:PartitivRelasjon ;
+                                        skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
+                                        dct:modified                "2019-08-21"^^xsd:date
+                                      ] ;
         skosno:betydningsbeskrivelse  [ a                             skosno:Definisjon ;
                                         rdfs:label                    "Definisjon1"@nb , "Definition1"@en ;
                                         skosno:betydningsbeskrivelse  [ skosno:forholdTilKilde  skosno:basertPåKilde ;

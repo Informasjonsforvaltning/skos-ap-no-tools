@@ -1,5 +1,8 @@
 package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep;
 
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Begrepsrelasjon.AssosiativRelasjonBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Begrepsrelasjon.GeneriskRelasjonBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Begrepsrelasjon.PartitivRelasjonBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.AlternativFormulering.AlternativFormuleringBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.DefinisjonBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.AnbefaltTermBuilder;
@@ -102,6 +105,18 @@ public class BegrepBuilder {
     public BegrepBuilder erstattesAv(final String identifikatorUri) {
         conceptBuilder.replacedBy(identifikatorUri);
         return this;
+    }
+
+    public AssosiativRelasjonBuilder assosiativRelasjonBuilder() {
+        return new AssosiativRelasjonBuilder(this, conceptBuilder);
+    }
+
+    public GeneriskRelasjonBuilder generiskRelasjonBuilder() {
+        return new GeneriskRelasjonBuilder(this, conceptBuilder);
+    }
+
+    public PartitivRelasjonBuilder partitivRelasjonBuilder() {
+        return new PartitivRelasjonBuilder(this, conceptBuilder);
     }
 
     public Model getModel() {

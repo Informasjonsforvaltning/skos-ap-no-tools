@@ -1,6 +1,9 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Conceptrelation.AssociativeRelationBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Conceptrelation.GenericRelationBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Conceptrelation.PartitiveRelationBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.DatastructureLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.AlternativeWording.AlternativeWordingBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.Definition.DefinitionBuilder;
@@ -138,6 +141,18 @@ public class ConceptBuilder {
             getModel().getResource(uri).addProperty(DCTerms.replaces, getResource().getURI());
         }
         return this;
+    }
+
+    public AssociativeRelationBuilder associativeRelationBuilder() {
+        return new AssociativeRelationBuilder(this);
+    }
+
+    public GenericRelationBuilder genericRelationBuilder() {
+        return new GenericRelationBuilder(this);
+    }
+
+    public PartitiveRelationBuilder partitiveRelationBuilder() {
+        return new PartitiveRelationBuilder(this);
     }
 
     public Model getModel() {
