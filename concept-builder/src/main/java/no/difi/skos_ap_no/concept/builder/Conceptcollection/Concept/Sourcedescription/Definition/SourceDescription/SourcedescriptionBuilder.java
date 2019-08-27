@@ -1,7 +1,7 @@
-package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.SourceDescription;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.Definition.SourceDescription;
 
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.AlternativeWordingBuilder;
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.SourceDescription.URIText.URITextBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.Definition.DefinitionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.Definition.SourceDescription.URIText.URITextBuilder;
 import no.difi.skos_ap_no.concept.builder.generic.SourceType;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import org.apache.jena.rdf.model.Model;
@@ -10,11 +10,11 @@ import org.apache.jena.rdf.model.Resource;
 
 public class SourcedescriptionBuilder {
 
-    private AlternativeWordingBuilder parent;
+    private DefinitionBuilder parent;
     private Resource resource;
 
 
-    public SourcedescriptionBuilder(final AlternativeWordingBuilder parent) {
+    public SourcedescriptionBuilder(final DefinitionBuilder parent) {
         this.parent = parent;
         resource = parent.getModel().createResource();
     }
@@ -36,7 +36,7 @@ public class SourcedescriptionBuilder {
         return resource;
     }
 
-    public AlternativeWordingBuilder build() {
+    public DefinitionBuilder build() {
         parent.getResource().addProperty(SKOSNO.betydningsbeskrivelse, resource);
         return parent;
     }

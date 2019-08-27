@@ -4,7 +4,7 @@ import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.BegrepBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.AlternativFormulering.Kildebeskrivelse.KildebeskrivelseBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.AlternativFormulering.URITekst.URITekstBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.AlternativeWordingBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.AlternativeWording.AlternativeWordingBuilder;
 import no.difi.skos_ap_no.concept.builder.generelt.MålgruppeType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;

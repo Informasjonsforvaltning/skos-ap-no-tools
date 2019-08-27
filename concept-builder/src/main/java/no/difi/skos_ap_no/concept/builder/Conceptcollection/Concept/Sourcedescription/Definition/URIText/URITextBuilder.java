@@ -1,6 +1,6 @@
-package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.URIText;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.Definition.URIText;
 
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.DefinitionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.Definition.DefinitionBuilder;
 import org.apache.jena.rdf.model.Property;
 
 

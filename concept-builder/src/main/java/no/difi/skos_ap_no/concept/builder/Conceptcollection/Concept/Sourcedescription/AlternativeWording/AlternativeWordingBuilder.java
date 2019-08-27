@@ -1,8 +1,8 @@
-package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition;
+package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.AlternativeWording;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.SourceDescription.SourcedescriptionBuilder;
-import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.URIText.URITextBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.AlternativeWording.SourceDescription.SourcedescriptionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescription.AlternativeWording.URIText.URITextBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import no.difi.skos_ap_no.concept.builder.generic.AudienceType;
 import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
@@ -16,17 +16,17 @@ import org.apache.jena.vocabulary.SKOS;
 import java.time.LocalDate;
 
 
-public class DefinitionBuilder {
+public class AlternativeWordingBuilder {
 
     private ConceptBuilder parent;
     private Model model;
     private Resource resource;
 
 
-    public DefinitionBuilder(final ConceptBuilder conceptBuilder) {
+    public AlternativeWordingBuilder(final ConceptBuilder conceptBuilder) {
         parent = conceptBuilder;
         model = conceptBuilder.getModel();
-        resource = model.createResource(SKOSNO.Definisjon);
+        resource = model.createResource(SKOSNO.AlternativFormulering);
     }
 
     public Model getModel() {
@@ -41,28 +41,28 @@ public class DefinitionBuilder {
         return new SourcedescriptionBuilder(this);
     }
 
-    public DefinitionBuilder text(final String text, final String language) {
+    public AlternativeWordingBuilder text(final String text, final String language) {
         if (text != null) {
             resource.addProperty(RDFS.label, text, language);
         }
         return this;
     }
 
-    public DefinitionBuilder example(final String exampleText, final String language) {
+    public AlternativeWordingBuilder example(final String exampleText, final String language) {
         if (exampleText != null) {
             resource.addProperty(SKOS.example, exampleText, language);
         }
         return this;
     }
 
-    public DefinitionBuilder scopeNote(final String scopeText, final String language) {
+    public AlternativeWordingBuilder scopeNote(final String scopeText, final String language) {
         if (scopeText != null) {
             resource.addProperty(SKOS.scopeNote, scopeText, language);
         }
         return this;
     }
 
-    public DefinitionBuilder audience(final AudienceType.Audience audience) {
+    public AlternativeWordingBuilder audience(final AudienceType.Audience audience) {
         resource.addProperty(DCTerms.audience, parent.getModel().createResource(audience.toString()));
         return this;
     }
@@ -71,7 +71,7 @@ public class DefinitionBuilder {
         return new URITextBuilder(this, SKOSNO.omfang);
     }
 
-    public DefinitionBuilder modified(final LocalDate date) {
+    public AlternativeWordingBuilder modified(final LocalDate date) {
         if (date != null) {
             resource.addProperty(DCTerms.modified, model.createTypedLiteral(LocalDateToXSDDateTime.toXSDDate(date), XSDDateType.XSDdate));
         }
