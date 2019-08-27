@@ -3,6 +3,7 @@ package no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.AlternativFormulering.AlternativFormuleringBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Betydningsbeskrivelse.Definisjon.DefinisjonBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.AnbefaltTermBuilder;
+import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.DatastrukturTermBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.FrarådetTermBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.Begrep.Term.TillattTermBuilder;
 import no.difi.skos_ap_no.begrep.builder.Begrepssamling.BegrepssamlingBuilder;
@@ -46,6 +47,10 @@ public class BegrepBuilder {
 
     public FrarådetTermBuilder frarådetTermBuilder() {
         return new FrarådetTermBuilder(this, conceptBuilder);
+    }
+
+    public DatastrukturTermBuilder datastrukturTermBuilder() {
+        return new DatastrukturTermBuilder(this, conceptBuilder);
     }
 
     public BegrepBuilder fagområde(final String tekst, final String språk) {

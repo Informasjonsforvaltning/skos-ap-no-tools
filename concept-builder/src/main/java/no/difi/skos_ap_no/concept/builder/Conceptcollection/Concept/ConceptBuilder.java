@@ -1,6 +1,7 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
+import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.DatastructureLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.AlternativeWording.AlternativeWordingBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Meaning.Sourcedescription.Definition.DefinitionBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.AltLabelBuilder;
@@ -71,6 +72,10 @@ public class ConceptBuilder {
 
     public HiddenLabelBuilder hiddenLabelBuilder() {
         return new HiddenLabelBuilder(this);
+    }
+
+    public DatastructureLabelBuilder datastructureLabelBuilder() {
+        return new DatastructureLabelBuilder(this);
     }
 
     public ConceptBuilder subject(final String subject, final String language) {
