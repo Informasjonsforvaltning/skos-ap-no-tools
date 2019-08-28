@@ -18,25 +18,34 @@
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
+<http://my.org/concept/Concept3>
+        a                       skos:Concept ;
+        rdfs:seeAlso            "http://my.org/concept/Concept1" ;
+        skosno:begrepsrelasjon  [ a                           skosno:PartitivRelasjon ;
+                                  skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
+                                  skosno:underordnetBegrep    <http://my.org/concept/Concept2> ;
+                                  dct:modified                "2019-08-21"^^xsd:date
+                                ] ;
+        dct:identifier          "http://my.org/concept/Concept3" ;
+        dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+
 <http://my.org/concept/Concept2>
-        a               skos:Concept ;
-        rdfs:seeAlso    "http://my.org/concept/Concept1" ;
-        dct:identifier  "http://my.org/concept/Concept2" ;
-        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+        a                       skos:Concept ;
+        rdfs:seeAlso            "http://my.org/concept/Concept1" ;
+        skosno:begrepsrelasjon  [ a                           skosno:GeneriskRelasjon ;
+                                  skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
+                                  skosno:overordnetBegrep     <http://my.org/concept/Concept3> ;
+                                  dct:modified                "2019-08-20"^^xsd:date
+                                ] ;
+        dct:identifier          "http://my.org/concept/Concept2" ;
+        dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
 <http://my.org/concept/Concept1>
         a                             skos:Concept ;
-        skosno:begrepsrelasjon        [ a                skosno:AssosiativRelasjon ;
-                                        dct:description  "beskrivelse"@nb , "description"@en ;
-                                        dct:modified     "2019-08-19"^^xsd:date
-                                      ] ;
-        skosno:begrepsrelasjon        [ a                           skosno:GeneriskRelasjon ;
-                                        skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
-                                        dct:modified                "2019-08-20"^^xsd:date
-                                      ] ;
-        skosno:begrepsrelasjon        [ a                           skosno:PartitivRelasjon ;
-                                        skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
-                                        dct:modified                "2019-08-21"^^xsd:date
+        skosno:begrepsrelasjon        [ a                       skosno:AssosiativRelasjon ;
+                                        skosno:assosiertBegrep  <http://my.org/concept/Concept2> ;
+                                        dct:description         "beskrivelse"@nb , "description"@en ;
+                                        dct:modified            "2019-08-19"^^xsd:date
                                       ] ;
         skosno:betydningsbeskrivelse  [ a                             skosno:Definisjon ;
                                         rdfs:label                    "Definisjon1"@nb , "Definition1"@en ;
@@ -91,7 +100,7 @@
         dct:description    "Description1" ;
         dct:identifier     "http://my.org/collection/first" ;
         dct:publisher      <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> ;
-        skos:member        <http://my.org/concept/Concept2> , <http://my.org/concept/Concept1> ;
+        skos:member        <http://my.org/concept/Concept3> , <http://my.org/concept/Concept2> , <http://my.org/concept/Concept1> ;
         dcat:contactPoint  [ a                          vcard:Organization ;
                              vcard:hasEmail             <mailto:org1@invalid.org> ;
                              vcard:hasOrganizationUnit  "ContactPointOrg1" ;

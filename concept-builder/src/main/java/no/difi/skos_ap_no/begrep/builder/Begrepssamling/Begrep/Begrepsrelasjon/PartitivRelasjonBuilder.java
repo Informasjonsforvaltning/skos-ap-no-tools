@@ -28,6 +28,16 @@ public class PartitivRelasjonBuilder {
         return this;
     }
 
+    public PartitivRelasjonBuilder overordnetBegrep(final String uri) {
+        partitiveRelationBuilder.broaderConcept(uri);
+        return this;
+    }
+
+    public PartitivRelasjonBuilder underordnetBegrep(final String uri) {
+        partitiveRelationBuilder.narrowerConcept(uri);
+        return this;
+    }
+
     public BegrepBuilder build() {
         partitiveRelationBuilder.build();
         return parent;

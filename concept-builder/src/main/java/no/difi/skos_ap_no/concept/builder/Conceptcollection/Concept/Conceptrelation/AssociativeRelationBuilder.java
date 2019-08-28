@@ -38,6 +38,13 @@ public class AssociativeRelationBuilder {
         return this;
     }
 
+    public AssociativeRelationBuilder associatedConcept(final String uri) {
+        if (uri != null) {
+            resource.addProperty(SKOSNO.assosiertBegrep, model.createResource(uri));
+        }
+        return this;
+    }
+
     public ConceptBuilder build() {
         parent.getResource().addProperty(SKOSNO.begrepsrelasjon, resource);
         return parent;

@@ -28,6 +28,16 @@ public class GeneriskRelasjonBuilder {
         return this;
     }
 
+    public GeneriskRelasjonBuilder overordnetBegrep(final String uri) {
+        genericRelationBuilder.broaderConcept(uri);
+        return this;
+    }
+
+    public GeneriskRelasjonBuilder underordnetBegrep(final String uri) {
+        genericRelationBuilder.narrowerConcept(uri);
+        return this;
+    }
+
     public BegrepBuilder build() {
         genericRelationBuilder.build();
         return parent;

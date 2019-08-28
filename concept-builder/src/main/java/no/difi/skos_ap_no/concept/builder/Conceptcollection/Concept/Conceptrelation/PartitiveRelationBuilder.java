@@ -38,6 +38,20 @@ public class PartitiveRelationBuilder {
         return this;
     }
 
+    public PartitiveRelationBuilder broaderConcept(final String uri) {
+        if (uri != null) {
+            resource.addProperty(SKOSNO.overordnetBegrep, model.createResource(uri));
+        }
+        return this;
+    }
+
+    public PartitiveRelationBuilder narrowerConcept(final String uri) {
+        if (uri != null) {
+            resource.addProperty(SKOSNO.underordnetBegrep, model.createResource(uri));
+        }
+        return this;
+    }
+
     public ConceptBuilder build() {
         parent.getResource().addProperty(SKOSNO.begrepsrelasjon, resource);
         return parent;

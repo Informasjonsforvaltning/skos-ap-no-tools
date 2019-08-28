@@ -28,6 +28,11 @@ public class AssosiativRelasjonBuilder {
         return this;
     }
 
+    public AssosiativRelasjonBuilder assosiertBegrep(final String uri) {
+        associativeRelationBuilder.associatedConcept(uri);
+        return this;
+    }
+
     public BegrepBuilder build() {
         associativeRelationBuilder.build();
         return parent;
