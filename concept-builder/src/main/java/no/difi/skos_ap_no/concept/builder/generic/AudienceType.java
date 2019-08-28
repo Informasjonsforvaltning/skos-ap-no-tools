@@ -6,8 +6,8 @@ import no.difi.skos_ap_no.concept.builder.SKOSNO;
 public class AudienceType {
 
     public enum Audience {
-        Public(SKOSNO.NS + "allmennheten"),
-        Specialist(SKOSNO.NS + "fagspesialist");
+        Public(SKOSNO.allmennheten.getURI()),
+        Specialist(SKOSNO.fagspesialist.getURI());
 
         private String uri;
 
