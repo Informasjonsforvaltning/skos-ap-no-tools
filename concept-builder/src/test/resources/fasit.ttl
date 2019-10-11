@@ -18,6 +18,11 @@
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
+<http://my.second.org/concept/Concept%20with%20space>
+        a               skos:Concept ;
+        dct:identifier  "http://my.second.org/concept/Concept with space" ;
+        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> .
+
 <http://my.org/concept/Concept3>
         a                       skos:Concept ;
         rdfs:seeAlso            "http://my.org/concept/Concept1" ;
@@ -39,6 +44,13 @@
                                 ] ;
         dct:identifier          "http://my.org/concept/Concept2" ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+
+<http://my.org/collection/second>
+        a               skos:Collection ;
+        rdfs:label      "CollectionName2" ;
+        dct:identifier  "http://my.org/collection/second" ;
+        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> ;
+        skos:member     <http://my.second.org/concept/Concept%20with%20space> .
 
 <http://my.org/concept/Concept1>
         a                             skos:Concept ;

@@ -1,5 +1,6 @@
 package no.difi.skos_ap_no.concept.builder.generic;
 
+import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDFS;
@@ -25,7 +26,7 @@ public abstract class URITextBuilder<T> {
 
     public T seeAlso(final String seeAlsoUrl) {
         if (seeAlsoUrl != null) {
-            resource.addProperty(RDFS.seeAlso, model.createResource(seeAlsoUrl));
+            resource.addProperty(RDFS.seeAlso, model.createResource(ModelBuilder.escapeURI(seeAlsoUrl)));
         }
         return (T)this;
     }

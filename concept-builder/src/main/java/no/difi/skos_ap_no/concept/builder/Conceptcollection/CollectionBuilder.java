@@ -22,7 +22,7 @@ public class CollectionBuilder {
     public CollectionBuilder(final ModelBuilder modelBuilder, final Model model, final String collectionUri) {
         this.parent = modelBuilder;
         this.model = model;
-        resource = model.createResource(collectionUri).addProperty(RDF.type, SKOS.Collection);
+        resource = model.createResource(ModelBuilder.escapeURI(collectionUri)).addProperty(RDF.type, SKOS.Collection);
 
         identifier(collectionUri);
     }
@@ -57,7 +57,7 @@ public class CollectionBuilder {
         }
         if (organizationNumber != null) {
             this.publisher = organizationNumber;
-            resource.addProperty(DCTerms.publisher, model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber));
+            resource.addProperty(DCTerms.publisher, model.createResource(ModelBuilder.escapeURI("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber)));
         }
         return this;
     }

@@ -1,6 +1,7 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Conceptrelation;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
@@ -40,14 +41,14 @@ public class PartitiveRelationBuilder {
 
     public PartitiveRelationBuilder broaderConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(SKOSNO.overordnetBegrep, model.createResource(uri));
+            resource.addProperty(SKOSNO.overordnetBegrep, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }
 
     public PartitiveRelationBuilder narrowerConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(SKOSNO.underordnetBegrep, model.createResource(uri));
+            resource.addProperty(SKOSNO.underordnetBegrep, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }

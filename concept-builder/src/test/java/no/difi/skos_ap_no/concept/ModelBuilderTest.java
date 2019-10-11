@@ -130,6 +130,12 @@ class ModelBuilderTest {
                                 .build()
                             .build()
                         .build()
+                    .collectionBuilder("http://my.org/collection/second")
+                        .name("CollectionName2")
+                        .publisher("Publisher2")
+                        .conceptBuilder("http://my.second.org/concept/Concept with space")
+                            .build()
+                        .build()
                     .build();
 
         Model fasitModel = ModelFactory.createDefaultModel();
@@ -240,6 +246,12 @@ class ModelBuilderTest {
                                 .sistOppdatert(LocalDate.of(2019, 8, 21))
                                 .underordnetBegrep("http://my.org/concept/Concept2")
                                 .build()
+                            .build()
+                        .build()
+                    .begrepssamlingBuilder("http://my.org/collection/second")
+                        .navn("CollectionName2")
+                        .ansvarligVirksomhet("Publisher2")
+                        .begrepBuilder("http://my.second.org/concept/Concept with space")
                             .build()
                         .build()
                     .build();

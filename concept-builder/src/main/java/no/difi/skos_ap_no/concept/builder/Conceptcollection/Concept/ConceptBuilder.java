@@ -10,6 +10,7 @@ import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Sourcedescri
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.AltLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.HiddenLabelBuilder;
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Label.PrefLabelBuilder;
+import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
@@ -30,7 +31,7 @@ public class ConceptBuilder {
     public ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri) {
         this.parent = collectionBuilder;
         this.model = model;
-        resource = model.createResource(uri).addProperty(RDF.type, SKOS.Concept);
+        resource = model.createResource(ModelBuilder.escapeURI(uri)).addProperty(RDF.type, SKOS.Concept);
 
         identifier(uri);
         publisher(collectionBuilder.getPublisher()); //Inherit publisher from Collection
@@ -59,7 +60,7 @@ public class ConceptBuilder {
             resource.removeAll(DCTerms.publisher);
         }
         if (organizationNumber != null) {
-            Resource publisher = model.createResource("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber);
+            Resource publisher = model.createResource(ModelBuilder.escapeURI("https://data.brreg.no/enhetsregisteret/api/enheter/" + organizationNumber));
             resource.addProperty(DCTerms.publisher, publisher);
         }
         return this;

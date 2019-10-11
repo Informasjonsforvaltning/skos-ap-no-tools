@@ -1,6 +1,7 @@
 package no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.Conceptrelation;
 
 import no.difi.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
+import no.difi.skos_ap_no.concept.builder.ModelBuilder;
 import no.difi.skos_ap_no.concept.builder.SKOSNO;
 import no.difi.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
@@ -40,7 +41,7 @@ public class AssociativeRelationBuilder {
 
     public AssociativeRelationBuilder associatedConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(SKOSNO.assosiertBegrep, model.createResource(uri));
+            resource.addProperty(SKOSNO.assosiertBegrep, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }
