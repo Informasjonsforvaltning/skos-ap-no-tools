@@ -11,45 +11,110 @@ Builds a model with various helper builders.
 ## ConceptCollection
 
 ```java
-        Model model = ModelBuilder.builder()
-            .collectionBuilder("http://my.org/collectino/first")
-                .publisher("123456789")
-                .conceptBuilder("http://my.org/concept/application")
-                    .publisher("123456789")
-                    .definitionBuilder()
-                        .text("an application is a program", "en")
-                        .sourceBuilder()
-                            .label("see the law", "en")
-                            .seeAlso("https://lovdata.no/NL/lov/1980-02-08-2/5-1")
+Model model =
+                ModelBuilder.builder()
+                    .collectionBuilder("http://my.org/collection/first")
+                        .name("CollectionName1")
+                        .publisher("Publisher1")
+                        .description("Description1")
+                        .contactPointBuilder()
+                            .organizationUnit("ContactPointOrg1")
+                            .email("org1@invalid.org")
+                            .telephone("1")
                             .build()
-                        .audience("allmenheten", "nb")
-                        .scopeNote("dette gjelder intill videre", "nb")
-                        .modified("2017-10-20")
+                        .conceptBuilder("http://my.org/concept/Concept1")
+                            .publisher("Publisher1.1")
+                            .subject("Subject1", "en")
+                            .subject("Fagområde1", "nb")
+                            .domainOfUse("domainOfUse1", "en")
+                            .domainOfUse("bruksområde1", "nb")
+                            .periodOfTimeBuilder()
+                                .validFromIncluding(LocalDate.of(2017, 10, 20))
+                                .validToIncluding(LocalDate.of(2037, 10, 19))
+                                .build()
+                            .contactPointBuilder()
+                                .organizationUnit("ContactPointOrg1.1")
+                                .email("org1.1@invalid.org")
+                                .telephone("11")
+                                .build()
+                            .modified(LocalDate.of(2019, 8, 22))
+                            .prefLabelBuilder()
+                                .label("PrefLabel1", "en")
+                                .label("AnbefaltTerm1", "nb")
+                                .modified(LocalDate.of(2017, 10, 31))
+                                .build()
+                            .altLabelBuilder()
+                                .label("AltLabel1", "en")
+                                .label("TillattTerm1", "nb")
+                                .audience(AudienceType.Audience.Public)
+                                .build()
+                            .hiddenLabelBuilder()
+                                .label("HiddenLabel1", "en")
+                                .label("FrarådetTerm1", "nb")
+                                .build()
+                            .datastructureLabelBuilder()
+                                .label("DatastructureLabel1", "en")
+                                .label("DatastrukturTerm1", "nb")
+                                .build()
+                            .definitionBuilder()
+                                .text("Definition1", "en")
+                                .text("Definisjon1", "nb")
+                                .sourcedescriptionBuilder()
+                                    .sourceBuilder()
+                                        .seeAlso("http://invalid.org/concept2")
+                                        .label("Source1", "en")
+                                        .label("Kilde1", "nb")
+                                        .build()
+                                    .sourcetype(SourceType.Source.BasedOn)
+                                    .build()
+                                .example("Example1", "en")
+                                .example("Eksempel", "nb")
+                                .scopeNote("ScopeNote1", "en")
+                                .scopeNote("Merknad1", "nb")
+                                .audience(AudienceType.Audience.Specialist)
+                                .scopeBuilder()
+                                    .label("scopeLabel1", "en")
+                                    .label("omfangTekst1", "nb")
+                                    .seeAlso("http://invalid.org/scope/Scope1")
+                                    .build()
+                                .modified(LocalDate.of(2018, 10, 31))
+                                .build()
+                            .alternativeWordingBuilder()
+                                .text("AlternativeWording1", "en")
+                                .build()
+                            .associativeRelationBuilder()
+                                .description("description", "en")
+                                .description("beskrivelse", "nb")
+                                .modified(LocalDate.of(2019, 8, 19))
+                                .associatedConcept("http://my.org/concept/Concept2")
+                                .build()
+                            .build()
+                        .conceptBuilder("http://my.org/concept/Concept2")
+                            .seeAlso("http://my.org/concept/Concept1")
+                            .genericRelationBuilder()
+                                .divisioncriterion("divisioncriterion", "en")
+                                .divisioncriterion("inndelingskriterium", "nb")
+                                .modified(LocalDate.of(2019, 8, 20))
+                                .broaderConcept("http://my.org/concept/Concept3")
+                                .build()
+                            .build()
+                        .conceptBuilder("http://my.org/concept/Concept3")
+                            .seeAlso("http://my.org/concept/Concept1")
+                            .partitiveRelationBuilder()
+                                .divisioncriterion("divisioncriterion", "en")
+                                .divisioncriterion("inndelingskriterium", "nb")
+                                .modified(LocalDate.of(2019, 8, 21))
+                                .narrowerConcept("http://my.org/concept/Concept2")
+                                .build()
+                            .build()
                         .build()
-                    .alternativeDefinitionBuilder()
-                        .text("can be a program also", "en")
+                    .collectionBuilder("http://my.org/collection/second")
+                        .name("CollectionName2")
+                        .publisher("Publisher2")
+                        .conceptBuilder("http://my.second.org/concept/Concept with space")
+                            .build()
                         .build()
-                    .subject("tjenester 3.0", "no")
-                    .identifier("t3:application")
-                    .preferredTerm("application", "en")
-                    .preferredTerm("applikasjon", "no")
-                    .alternativeTerm("app", "en")
-                    .deprecatedTerm("service", "en")
-                    .deprecatedTerm("tjeneste", "no")
-                    .contactPointBuilder()
-                        .organizationUnit("Contact Dep")
-                        .email("me@org.no")
-                        .telephone("+4755555555")
-                        .build()
-                .build()
-                .conceptBuilder("https://my.org/concept/term")
-                    .preferredTerm("term", "en")
-                .build()
-                .conceptBuilder("https://my.org/concept/rest")
-                    .alternativeTerm("Representational State Transfer", "en")
-                .build()
-            .build()
-        .build();
+                    .build();
 
         conceptModel.write(System.out, "TURTLE");
 ```
@@ -77,123 +142,107 @@ Builds a model with various helper builders.
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-<https://my.org/concept/rest>
-        a                skos:Concept ;
-        skosxl:altLabel  [ a                   skosxl:Label ;
-                           skosxl:literalForm  "Representational State Transfer"@en
-                         ] .
+<http://my.second.org/concept/Concept%20with%20space>
+        a               skos:Concept ;
+        dct:identifier  "http://my.second.org/concept/Concept with space" ;
+        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> .
 
-<http://my.org/concept/application>
+<http://my.org/concept/Concept3>
+        a                       skos:Concept ;
+        rdfs:seeAlso            "http://my.org/concept/Concept1" ;
+        skosno:begrepsrelasjon  [ a                           skosno:PartitivRelasjon ;
+                                  skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
+                                  skosno:underordnetBegrep    <http://my.org/concept/Concept2> ;
+                                  dct:modified                "2019-08-21"^^xsd:date
+                                ] ;
+        dct:identifier          "http://my.org/concept/Concept3" ;
+        dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+
+<http://my.org/concept/Concept2>
+        a                       skos:Concept ;
+        rdfs:seeAlso            "http://my.org/concept/Concept1" ;
+        skosno:begrepsrelasjon  [ a                           skosno:GeneriskRelasjon ;
+                                  skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
+                                  skosno:overordnetBegrep     <http://my.org/concept/Concept3> ;
+                                  dct:modified                "2019-08-20"^^xsd:date
+                                ] ;
+        dct:identifier          "http://my.org/concept/Concept2" ;
+        dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+
+<http://my.org/collection/second>
+        a               skos:Collection ;
+        rdfs:label      "CollectionName2" ;
+        dct:identifier  "http://my.org/collection/second" ;
+        dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> ;
+        skos:member     <http://my.second.org/concept/Concept%20with%20space> .
+
+<http://my.org/concept/Concept1>
         a                             skos:Concept ;
-        skosno:betydningsbeskrivelse  [ a               skosno:Definisjon ;
-                                        rdfs:label      "an application is a program"@en ;
-                                        dct:audience    "allmenheten"@nb ;
-                                        dct:modified    "2017-10-20"^^xsd:date ;
-                                        dct:source      [ rdfs:label    "see the law"@en ;
-                                                          rdfs:seeAlso  <https://lovdata.no/NL/lov/1980-02-08-2/5-1>
-                                                        ] ;
-                                        skos:scopeNote  "dette gjelder intill videre"@nb
+        skosno:begrepsrelasjon        [ a                       skosno:AssosiativRelasjon ;
+                                        skosno:assosiertBegrep  <http://my.org/concept/Concept2> ;
+                                        dct:description         "beskrivelse"@nb , "description"@en ;
+                                        dct:modified            "2019-08-19"^^xsd:date
+                                      ] ;
+        skosno:betydningsbeskrivelse  [ a                       skosno:Definisjon ;
+                                        rdfs:label              "Definisjon1"@nb , "Definition1"@en ;
+                                        skosno:forholdTilKilde  skosno:basertPåKilde ;
+                                        skosno:omfang           [ rdfs:label    "omfangTekst1"@nb , "scopeLabel1"@en ;
+                                                                  rdfs:seeAlso  <http://invalid.org/scope/Scope1>
+                                                                ] ;
+                                        dct:audience            skosno:fagspesialist ;
+                                        dct:modified            "2018-10-31"^^xsd:date ;
+                                        skos:example            "Eksempel"@nb , "Example1"@en ;
+                                        skos:scopeNote          "ScopeNote1"@en , "Merknad1"@nb ;
+                                        dct:source              [ rdfs:label    "Kilde1"@nb , "Source1"@en ;
+                                                                  rdfs:seeAlso  <http://invalid.org/concept2>
+                                                                ]
                                       ] ;
         skosno:betydningsbeskrivelse  [ a           skosno:AlternativFormulering ;
-                                        rdfs:label  "can be a program also"@en
+                                        rdfs:label  "AlternativeWording1"@en
                                       ] ;
-        dct:identifier                "t3:application" ;
-        dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/123456789> ;
-        dct:subject                   "tjenester 3.0"@no ;
+        skosno:bruksområde            "bruksområde1"@nb , "domainOfUse1"@en ;
+        skosno:datastrukturterm       [ a                   skosxl:Label ;
+                                        skosxl:literalForm  "DatastrukturTerm1"@nb , "DatastructureLabel1"@en
+                                      ] ;
+        dct:identifier                "http://my.org/concept/Concept1" ;
+        dct:modified                  "2019-08-22"^^xsd:date ;
+        dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1.1> ;
+        dct:subject                   "Subject1"@en , "Fagområde1"@nb ;
+        dct:temporal                  [ a                 dct:PeriodOfTime ;
+                                        schema:endDate    "2037-10-19"^^xsd:date ;
+                                        schema:startDate  "2017-10-20"^^xsd:date
+                                      ] ;
         skosxl:altLabel               [ a                   skosxl:Label ;
-                                        skosxl:literalForm  "app"@en
+                                        dct:audience        skosno:allmennheten ;
+                                        skosxl:literalForm  "TillattTerm1"@nb , "AltLabel1"@en
                                       ] ;
         skosxl:hiddenLabel            [ a                   skosxl:Label ;
-                                        skosxl:literalForm  "tjeneste"@no
-                                      ] ;
-        skosxl:hiddenLabel            [ a                   skosxl:Label ;
-                                        skosxl:literalForm  "service"@en
+                                        skosxl:literalForm  "FrarådetTerm1"@nb , "HiddenLabel1"@en
                                       ] ;
         skosxl:prefLabel              [ a                   skosxl:Label ;
-                                        skosxl:literalForm  "applikasjon"@no
-                                      ] ;
-        skosxl:prefLabel              [ a                   skosxl:Label ;
-                                        skosxl:literalForm  "application"@en
+                                        dct:modified        "2017-10-31"^^xsd:date ;
+                                        skosxl:literalForm  "AnbefaltTerm1"@nb , "PrefLabel1"@en
                                       ] ;
         dcat:contactPoint             [ a                          vcard:Organization ;
-                                        vcard:hasEmail             <mailto:me@org.no> ;
-                                        vcard:hasOrganizationUnit  "Contact Dep" ;
-                                        vcard:hasTelephone         <tel:+4755555555>
+                                        vcard:hasEmail             <mailto:org1.1@invalid.org> ;
+                                        vcard:hasOrganizationUnit  "ContactPointOrg1.1" ;
+                                        vcard:hasTelephone         <tel:11>
                                       ] .
 
-<http://my.org/collectino/first>
-        a              skos:Collection ;
-        dct:publisher  <https://data.brreg.no/enhetsregisteret/api/enheter/123456789> ;
-        skos:member    <https://my.org/concept/rest> , <https://my.org/concept/term> , <http://my.org/concept/application> .
-
-<https://my.org/concept/term>
-        a                 skos:Concept ;
-        skosxl:prefLabel  [ a                   skosxl:Label ;
-                            skosxl:literalForm  "term"@en
-                          ] .
+<http://my.org/collection/first>
+        a                  skos:Collection ;
+        rdfs:label         "CollectionName1" ;
+        dct:description    "Description1" ;
+        dct:identifier     "http://my.org/collection/first" ;
+        dct:publisher      <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> ;
+        skos:member        <http://my.org/concept/Concept3> , <http://my.org/concept/Concept2> , <http://my.org/concept/Concept1> ;
+        dcat:contactPoint  [ a                          vcard:Organization ;
+                             vcard:hasEmail             <mailto:org1@invalid.org> ;
+                             vcard:hasOrganizationUnit  "ContactPointOrg1" ;
+                             vcard:hasTelephone         <tel:1>
+                           ] .
 ```
 
-# ModelReader
-
-Takes a Jena Model object and extracts the concepts in the RDF model.
-
-```java
-        Model conceptModel = ...
-
-        ModelReader reader = new ModelReader(conceptModel);
-
-        List<Concept> concepts = reader.getConcepts();
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        System.out.println(gson.toJson(concepts));
-```
-
-## JSON Representation
-
-```json
-[
-  {
-    "uri": "http://my.org/concept/application",
-    "identifier": "t3:application",
-    "definition": {
-      "text": {
-        "en": "an application is a program"
-      },
-      "scopeNote": {
-        "nb": "dette gjelder intill videre"
-      },
-      "source": {
-        "prefLabel": {
-          "en": "see the law"
-        }
-      }
-    },
-    "subject": {
-      "no": "tjenester 3.0"
-    },
-    "prefLabel": {
-      "en": "application",
-      "no": "applikasjon"
-    },
-    "altLabel": [
-      {
-        "en": "app"
-      }
-    ],
-    "hiddenLabel": [
-      {
-        "no": "tjeneste",
-        "en": "service"
-      }
-    ],
-    "contactPoint": {
-      "email": "me@org.no",
-      "telephone": "+4755555555"
-    }
-  }
-]
-```
 
 # Usage
 
