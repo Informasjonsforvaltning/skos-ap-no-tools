@@ -11,12 +11,11 @@ import org.apache.jena.rdf.model.Resource;
 public class SourcedescriptionBuilder {
 
     private AlternativeWordingBuilder parent;
-    private Resource resource;
 
+    private SourceType.Source source;
 
     public SourcedescriptionBuilder(final AlternativeWordingBuilder parent) {
         this.parent = parent;
-        resource = parent.getModel().createResource();
     }
 
     public URITextBuilder sourceBuilder() {
@@ -24,7 +23,7 @@ public class SourcedescriptionBuilder {
     }
 
     public SourcedescriptionBuilder sourcetype(final SourceType.Source source) {
-        resource.addProperty(SKOSNO.forholdTilKilde, parent.getModel().createResource(source.toString()));
+        this.source = source;
         return this;
     }
 
@@ -33,11 +32,14 @@ public class SourcedescriptionBuilder {
     }
 
     public Resource getResource() {
-        return resource;
+        return parent.getResource();
     }
 
     public AlternativeWordingBuilder build() {
-        parent.getResource().addProperty(SKOSNO.betydningsbeskrivelse, resource);
+        if (source != null) {
+            getResource().addProperty(SKOSNO.forholdTilKilde, parent.getModel().createResource(source.toString()));
+        }
+
         return parent;
     }
 
