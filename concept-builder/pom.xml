@@ -6,7 +6,15 @@
 
     <groupId>no.difi.skos-ap-no</groupId>
     <artifactId>concept-builder</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub difi Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/difi/skos-ap-no-tools</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <java.source.version>1.8</java.source.version>
