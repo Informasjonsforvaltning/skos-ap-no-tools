@@ -24,6 +24,7 @@
         <jena.version>3.12.0</jena.version>
     </properties>
 
+    
     <build>
         <plugins>
             <plugin>
