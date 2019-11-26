@@ -8,6 +8,14 @@
     <artifactId>concept-builder</artifactId>
     <version>1.0.1</version>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Informasjonsforvaltning Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <java.source.version>1.8</java.source.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
