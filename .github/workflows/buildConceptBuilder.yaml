@@ -27,9 +27,6 @@ jobs:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       run: |
         mkdir -p ~/.m2
-        echo "1${GITHUB_USERNAME1}1"
-        echo "2${secrets.GITHUB_USERNAME2}2"
-        echo "3${env.GITHUB_USERNAME3}3"
         echo "5${{secrets.GITHUB_USERNAME5}}5"
         echo "6${{env.GITHUB_USERNAME6}}6"
         echo "<settings><servers><server><id>github</id><username>x-access-token</username><password>${{secrets.GITHUB_TOKEN}}</password></server></servers></settings>" > ~/.m2/settings.xml
