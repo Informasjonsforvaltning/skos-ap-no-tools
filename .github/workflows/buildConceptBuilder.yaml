@@ -25,9 +25,4 @@ jobs:
       env:
         GITHUB_USERNAME: x-access-token
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: |
-        mkdir -p ~/.m2
-        echo "5${{secrets.GITHUB_USERNAME5}}5"
-        echo "6${{env.GITHUB_USERNAME6}}6"
-        echo "<settings><servers><server><id>github</id><username>x-access-token</username><password>${{secrets.GITHUB_TOKEN}}</password></server></servers></settings>" > ~/.m2/settings.xml
-        mvn deploy
+      run: mvn --settings settings.xml -B deploy
