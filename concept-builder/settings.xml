@@ -23,7 +23,7 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub Informasjonsforvaltning Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/Informasjonsforvaltning</url>
+                    <url>https://maven.pkg.github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
                 </repository>
             </repositories>
         </profile>
