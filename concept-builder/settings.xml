@@ -23,7 +23,7 @@
                 <repository>
                     <id>github</id>
                     <name>GitHub difi Apache Maven Packages</name>
-                    <url>https://maven.pkg.github.com/OWNER </url>
+                    <url>https://maven.pkg.github.com/Informasjonsforvaltning</url>
                 </repository>
             </repositories>
         </profile>
