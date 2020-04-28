@@ -52,7 +52,7 @@ public class ModelBuilder {
         model.setNsPrefix("skosxl", "http://www.w3.org/2008/05/skos-xl#");
         model.setNsPrefix("xkos", "http://rdf-vocabulary.ddialliance.org/xkos#");
 
-        model.setNsPrefix("skosno", "http://difi.no/skosno#");
+        model.setNsPrefix("skosno", SKOSNO.NS);
 
         return model;
     }
