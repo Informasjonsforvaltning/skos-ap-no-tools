@@ -79,7 +79,7 @@ public class AlternativeWordingBuilder {
     }
 
     public ConceptBuilder build() {
-        parent.getResource().addProperty(SKOSNO.betydningsbeskrivelse, resource);
+        parent.getResource().addProperty(SKOSNO.alternativFormulering, resource);
         return parent;
     }
 
