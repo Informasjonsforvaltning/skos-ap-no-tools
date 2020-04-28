@@ -183,7 +183,7 @@ Model model =
                                         dct:description         "beskrivelse"@nb , "description"@en ;
                                         dct:modified            "2019-08-19"^^xsd:date
                                       ] ;
-        skosno:betydningsbeskrivelse  [ a                       skosno:Definisjon ;
+        skosno:definisjon             [ a                       skosno:Definisjon ;
                                         rdfs:label              "Definisjon1"@nb , "Definition1"@en ;
                                         skosno:forholdTilKilde  skosno:basertPåKilde ;
                                         skosno:omfang           [ rdfs:label    "omfangTekst1"@nb , "scopeLabel1"@en ;
@@ -197,7 +197,7 @@ Model model =
                                                                   rdfs:seeAlso  <http://invalid.org/concept2>
                                                                 ]
                                       ] ;
-        skosno:betydningsbeskrivelse  [ a           skosno:AlternativFormulering ;
+        skosno:alternativFormulering  [ a           skosno:AlternativFormulering ;
                                         rdfs:label  "AlternativeWording1"@en
                                       ] ;
         skosno:bruksområde            "bruksområde1"@nb , "domainOfUse1"@en ;

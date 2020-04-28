@@ -79,7 +79,7 @@ public class DefinitionBuilder {
     }
 
     public ConceptBuilder build() {
-        parent.getResource().addProperty(SKOSNO.betydningsbeskrivelse, resource);
+        parent.getResource().addProperty(SKOSNO.definisjon, resource);
         return parent;
     }
 
