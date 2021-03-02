@@ -22,9 +22,10 @@ public class CollectionBuilder {
     public CollectionBuilder(final ModelBuilder modelBuilder, final Model model, final String collectionUri) {
         this.parent = modelBuilder;
         this.model = model;
-        resource = model.createResource(ModelBuilder.escapeURI(collectionUri)).addProperty(RDF.type, SKOS.Collection);
+        String escapedURI = ModelBuilder.escapeURI(collectionUri);
+        resource = model.createResource(escapedURI).addProperty(RDF.type, SKOS.Collection);
 
-        identifier(collectionUri);
+        identifier(escapedURI);
     }
 
     public ConceptBuilder conceptBuilder(final String conceptUri) {
@@ -46,7 +47,7 @@ public class CollectionBuilder {
             resource.removeAll(DCTerms.identifier);
         }
         if (identifier != null) {
-            resource.addProperty(DCTerms.identifier, identifier);
+            resource.addProperty(DCTerms.identifier, model.createResource(identifier));
         }
         return this;
     }

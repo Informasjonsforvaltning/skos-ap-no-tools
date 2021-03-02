@@ -31,9 +31,10 @@ public class ConceptBuilder {
     public ConceptBuilder(final CollectionBuilder collectionBuilder, final Model model, final String uri) {
         this.parent = collectionBuilder;
         this.model = model;
-        resource = model.createResource(ModelBuilder.escapeURI(uri)).addProperty(RDF.type, SKOS.Concept);
+        String escapedURI = ModelBuilder.escapeURI(uri);
+        resource = model.createResource(escapedURI).addProperty(RDF.type, SKOS.Concept);
 
-        identifier(uri);
+        identifier(escapedURI);
         publisher(collectionBuilder.getPublisher()); //Inherit publisher from Collection
     }
 
@@ -50,7 +51,7 @@ public class ConceptBuilder {
             resource.removeAll(DCTerms.identifier);
         }
         if (identifier != null) {
-            resource.addProperty(DCTerms.identifier, identifier);
+            resource.addProperty(DCTerms.identifier, model.createResource(identifier));
         }
         return this;
     }
