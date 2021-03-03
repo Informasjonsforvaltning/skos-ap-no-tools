@@ -14,13 +14,12 @@
 @prefix oa:    <http://www.w3.org/ns/prov#> .
 @prefix dct:   <http://purl.org/dc/terms/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dcatno: <http://difi.no/dcatno#> .
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
 <http://my.second.org/concept/Concept%20with%20space>
         a               skos:Concept ;
-        dct:identifier  "http://my.second.org/concept/Concept with space" ;
+        dct:identifier  <http://my.second.org/concept/Concept%20with%20space> ;
         dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> .
 
 <http://my.org/concept/Concept3>
@@ -31,7 +30,7 @@
                                   skosno:underordnetBegrep    <http://my.org/concept/Concept2> ;
                                   dct:modified                "2019-08-21"^^xsd:date
                                 ] ;
-        dct:identifier          "http://my.org/concept/Concept3" ;
+        dct:identifier          <http://my.org/concept/Concept3> ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
 <http://my.org/concept/Concept2>
@@ -42,13 +41,13 @@
                                   skosno:overordnetBegrep     <http://my.org/concept/Concept3> ;
                                   dct:modified                "2019-08-20"^^xsd:date
                                 ] ;
-        dct:identifier          "http://my.org/concept/Concept2" ;
+        dct:identifier          <http://my.org/concept/Concept2> ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
 <http://my.org/collection/second>
         a               skos:Collection ;
         rdfs:label      "CollectionName2" ;
-        dct:identifier  "http://my.org/collection/second" ;
+        dct:identifier  <http://my.org/collection/second> ;
         dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> ;
         skos:member     <http://my.second.org/concept/Concept%20with%20space> .
 
@@ -80,7 +79,7 @@
         skosno:datastrukturterm       [ a                   skosxl:Label ;
                                         skosxl:literalForm  "DatastrukturTerm1"@nb , "DatastructureLabel1"@en
                                       ] ;
-        dct:identifier                "http://my.org/concept/Concept1" ;
+        dct:identifier                <http://my.org/concept/Concept1> ;
         dct:modified                  "2019-08-22"^^xsd:date ;
         dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1.1> ;
         dct:subject                   "Subject1"@en , "Fagområde1"@nb ;
@@ -109,7 +108,7 @@
         a                  skos:Collection ;
         rdfs:label         "CollectionName1" ;
         dct:description    "Description1" ;
-        dct:identifier     "http://my.org/collection/first" ;
+        dct:identifier     <http://my.org/collection/first> ;
         dct:publisher      <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> ;
         skos:member        <http://my.org/concept/Concept3> , <http://my.org/concept/Concept2> , <http://my.org/concept/Concept1> ;
         dcat:contactPoint  [ a                          vcard:Organization ;

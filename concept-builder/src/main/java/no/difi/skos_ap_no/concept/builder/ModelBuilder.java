@@ -47,7 +47,6 @@ public class ModelBuilder {
         model.setNsPrefix("iso", "http://iso.org/25012/2008/dataquality/");
         model.setNsPrefix("oa", "http://www.w3.org/ns/prov#");
         model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-        model.setNsPrefix("dcatno", "http://difi.no/dcatno#");
 
         model.setNsPrefix("skosxl", "http://www.w3.org/2008/05/skos-xl#");
         model.setNsPrefix("xkos", "http://rdf-vocabulary.ddialliance.org/xkos#");
