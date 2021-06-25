@@ -4,17 +4,81 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.difi.skos-ap-no</groupId>
+    <groupId>no.norge.data.skos-ap-no</groupId>
     <artifactId>concept-builder</artifactId>
-    <version>1.0.4</version>
+    <name>Concept Builder</name>
+    <description>A stand alone library to instantiate concepts, deserialize/serialize them in RDF and Json according to DIFIs standard</description>
+    <url>https://github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
+    <version>1.0.6</version>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Informasjonsforvaltning Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
-        </repository>
-    </distributionManagement>
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>https://raw.githubusercontent.com/Informasjonsforvaltning/skos-ap-no-tools/master/concept-builder/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/Informasjonsforvaltning/skos-ap-no-tools.git</connection>
+        <developerConnection>scm:git:git://github.com/Informasjonsforvaltning/skos-ap-no-tools.git</developerConnection>
+        <url>https://github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>stigbd</id>
+            <name>Stig B. Dørmænen</name>
+            <organization>Digitaliseringsdirektoratet</organization>
+            <organizationUrl>https://www.digdir.no</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <profiles>
+        <profile>
+            <id>maven_publisher</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.7</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>github_publisher</id>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Informasjonsforvaltning Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
     <properties>
         <java.source.version>1.8</java.source.version>
@@ -68,6 +132,27 @@
                         <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <!-- Prevent gpg from using pinentry programs -->
+                    <gpgArguments>
+                        <arg>--pinentry-mode</arg>
+                        <arg>loopback</arg>
+                    </gpgArguments>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
