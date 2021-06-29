@@ -3,7 +3,7 @@ name: Build and publish skos-ap-no-tool concept-builder to github packages
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'concept-builder/**'
 
