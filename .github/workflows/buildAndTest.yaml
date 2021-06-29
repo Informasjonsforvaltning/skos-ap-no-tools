@@ -3,7 +3,7 @@ name: Test and build concept builder
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - 'concept-builder/**'
 
