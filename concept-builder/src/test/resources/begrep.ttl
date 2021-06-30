@@ -1,0 +1,71 @@
+@prefix schema: <http://schema.org/> .
+@prefix iso:   <http://iso.org/25012/2008/dataquality/> .
+@prefix spdx:  <http://spdx.org/rdf/terms#> .
+@prefix adms:  <http://www.w3.org/ns/adms#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix skosno: <https://data.norge.no/vocabulary/skosno#> .
+@prefix dqv:   <http://www.w3.org/ns/dqv#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xkos:  <http://rdf-vocabulary.ddialliance.org/xkos#> .
+@prefix oa:    <http://www.w3.org/ns/prov#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+<http://my.org/concept/Concept1>
+        a                             skos:Concept ;
+        skosno:begrepsrelasjon        [ a                       skosno:AssosiativRelasjon ;
+                                        skosno:assosiertBegrep  <http://my.org/concept/Concept2> ;
+                                        dct:description         "beskrivelse"@nb , "description"@en ;
+                                        dct:modified            "2019-08-19"^^xsd:date
+                                      ] ;
+        skosno:definisjon             [ a                       skosno:Definisjon ;
+                                        rdfs:label              "Definisjon1"@nb , "Definition1"@en ;
+                                        skosno:forholdTilKilde  skosno:basertPåKilde ;
+                                        skosno:omfang           [ rdfs:label    "omfangTekst1"@nb , "scopeLabel1"@en ;
+                                                                  rdfs:seeAlso  <http://invalid.org/scope/Scope1>
+                                                                ] ;
+                                        dct:audience            skosno:fagspesialist ;
+                                        dct:modified            "2018-10-31"^^xsd:date ;
+                                        skos:example            "Eksempel"@nb , "Example1"@en ;
+                                        skos:scopeNote          "ScopeNote1"@en , "Merknad1"@nb ;
+                                        dct:source              [ rdfs:label    "Kilde1"@nb , "Source1"@en ;
+                                                                  rdfs:seeAlso  <http://invalid.org/concept2>
+                                                                ]
+                                      ] ;
+        skosno:alternativFormulering  [ a           skosno:AlternativFormulering ;
+                                        rdfs:label  "AlternativeWording1"@en
+                                      ] ;
+        skosno:bruksområde            "bruksområde1"@nb , "domainOfUse1"@en ;
+        skosno:datastrukturterm       [ a                   skosxl:Label ;
+                                        skosxl:literalForm  "DatastrukturTerm1"@nb , "DatastructureLabel1"@en
+                                      ] ;
+        dct:identifier                <http://my.org/concept/Concept1> ;
+        dct:modified                  "2019-08-22"^^xsd:date ;
+        dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1.1> ;
+        dct:subject                   "Subject1"@en , "Fagområde1"@nb ;
+        dct:temporal                  [ a                 dct:PeriodOfTime ;
+                                        schema:endDate    "2037-10-19"^^xsd:date ;
+                                        schema:startDate  "2017-10-20"^^xsd:date
+                                      ] ;
+        skosxl:altLabel               [ a                   skosxl:Label ;
+                                        dct:audience        skosno:allmennheten ;
+                                        skosxl:literalForm  "TillattTerm1"@nb , "AltLabel1"@en
+                                      ] ;
+        skosxl:hiddenLabel            [ a                   skosxl:Label ;
+                                        skosxl:literalForm  "FrarådetTerm1"@nb , "HiddenLabel1"@en
+                                      ] ;
+        skosxl:prefLabel              [ a                   skosxl:Label ;
+                                        dct:modified        "2017-10-31"^^xsd:date ;
+                                        skosxl:literalForm  "AnbefaltTerm1"@nb , "PrefLabel1"@en
+                                      ] ;
+        dcat:contactPoint             [ a                          vcard:Organization ;
+                                        vcard:hasEmail             <mailto:org1.1@invalid.org> ;
+                                        vcard:hasOrganizationUnit  "ContactPointOrg1.1" ;
+                                        vcard:hasTelephone         <tel:11>
+                                      ] .
