@@ -1,6 +1,7 @@
 package no.norge.data.skos_ap_no.concept.builder;
 
 import no.norge.data.skos_ap_no.concept.builder.Conceptcollection.CollectionBuilder;
+import no.norge.data.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 
@@ -19,6 +20,10 @@ public class ModelBuilder {
 
     public CollectionBuilder collectionBuilder(final String collectionUri) {
         return new CollectionBuilder(this, model, collectionUri);
+    }
+
+    public ConceptBuilder conceptBuilder(final String conceptUri) {
+        return new ConceptBuilder(this, this.model, conceptUri);
     }
 
     public Model getModel() {

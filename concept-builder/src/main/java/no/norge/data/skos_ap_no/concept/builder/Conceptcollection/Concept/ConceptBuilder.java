@@ -24,6 +24,7 @@ import java.time.LocalDate;
 public class ConceptBuilder {
 
     private CollectionBuilder parent;
+    private ModelBuilder singleParent;
     private Model model;
     private Resource resource;
 
@@ -36,6 +37,16 @@ public class ConceptBuilder {
 
         identifier(escapedURI);
         publisher(collectionBuilder.getPublisher()); //Inherit publisher from Collection
+    }
+
+
+    public ConceptBuilder(final ModelBuilder modelBuilder, final Model model, final String uri) {
+        this.singleParent = modelBuilder;
+        this.model = model;
+        String escapedURI = ModelBuilder.escapeURI(uri);
+        resource = model.createResource(escapedURI).addProperty(RDF.type, SKOS.Concept);
+
+        identifier(escapedURI);
     }
 
     public DefinitionBuilder definitionBuilder() {
@@ -172,6 +183,13 @@ public class ConceptBuilder {
 
         parent.getResource().addProperty(SKOS.member, getResource());
         return parent;
+    }
+
+    public ModelBuilder buildSingleConcept() {
+        if (!resource.hasProperty(DCTerms.publisher)) {
+            throw new RuntimeException("Concept requires publisher");
+        }
+        return singleParent;
     }
 
 }

@@ -266,4 +266,88 @@ class ModelBuilderTest {
         }
     }
 
+    @Test
+    void singleConceptTestBuilder() {
+
+        Model model =
+            ModelBuilder.builder()
+                .conceptBuilder("http://my.org/concept/Concept1")
+                .publisher("Publisher1.1")
+                .subject("Subject1", "en")
+                .subject("Fagområde1", "nb")
+                .domainOfUse("domainOfUse1", "en")
+                .domainOfUse("bruksområde1", "nb")
+                .periodOfTimeBuilder()
+                    .validFromIncluding(LocalDate.of(2017, 10, 20))
+                    .validToIncluding(LocalDate.of(2037, 10, 19))
+                    .build()
+                .contactPointBuilder()
+                    .organizationUnit("ContactPointOrg1.1")
+                    .email("org1.1@invalid.org")
+                    .telephone("11")
+                    .build()
+                .modified(LocalDate.of(2019, 8, 22))
+                .prefLabelBuilder()
+                    .label("PrefLabel1", "en")
+                    .label("AnbefaltTerm1", "nb")
+                    .modified(LocalDate.of(2017, 10, 31))
+                    .build()
+                .altLabelBuilder()
+                    .label("AltLabel1", "en")
+                    .label("TillattTerm1", "nb")
+                    .audience(AudienceType.Audience.Public)
+                    .build()
+                .hiddenLabelBuilder()
+                    .label("HiddenLabel1", "en")
+                    .label("FrarådetTerm1", "nb")
+                    .build()
+                .datastructureLabelBuilder()
+                    .label("DatastructureLabel1", "en")
+                    .label("DatastrukturTerm1", "nb")
+                    .build()
+                .definitionBuilder()
+                    .text("Definition1", "en")
+                    .text("Definisjon1", "nb")
+                    .sourcedescriptionBuilder()
+                        .sourceBuilder()
+                            .seeAlso("http://invalid.org/concept2")
+                            .label("Source1", "en")
+                            .label("Kilde1", "nb")
+                            .build()
+                        .sourcetype(SourceType.Source.BasedOn)
+                        .build()
+                    .example("Example1", "en")
+                    .example("Eksempel", "nb")
+                    .scopeNote("ScopeNote1", "en")
+                    .scopeNote("Merknad1", "nb")
+                    .audience(AudienceType.Audience.Specialist)
+                    .scopeBuilder()
+                        .label("scopeLabel1", "en")
+                        .label("omfangTekst1", "nb")
+                        .seeAlso("http://invalid.org/scope/Scope1")
+                        .build()
+                    .modified(LocalDate.of(2018, 10, 31))
+                    .build()
+                .alternativeWordingBuilder()
+                    .text("AlternativeWording1", "en")
+                    .build()
+                .associativeRelationBuilder()
+                    .description("description", "en")
+                    .description("beskrivelse", "nb")
+                    .modified(LocalDate.of(2019, 8, 19))
+                    .associatedConcept("http://my.org/concept/Concept2")
+                    .build()
+                .buildSingleConcept()
+            .build();
+
+        Model fasitModel = ModelFactory.createDefaultModel();
+        fasitModel.read(resourceAsReader("begrep.ttl"), "", "text/turtle");
+
+        if (!model.isIsomorphicWith(fasitModel)) {
+            Writer writer = new StringWriter();
+            model.write(writer, "TURTLE");
+            throw new RuntimeException("Models are not isomorphic. Got actual:\n\n" + writer.toString());
+        }
+    }
+
 }
