@@ -245,35 +245,7 @@ Model model =
 
 # Usage
 
-Our goal is to publish this library to a official Maven repository. However, we are not there yet. Therefore you must include our jar in your project by following these steps:
-
-The following assumes you are using Spring Boot.
-
-1. Download our jar from the lib-directory.
-2. Add a dependency to the downloaded jar in your pom as a system dependency:
-
-  ```
-  <!-- The local jar for the concept-builder -->
-   <dependency>
-       <groupId>concept-builder.group</groupId>
-       <artifactId>fdk-concept-builder</artifactId>
-       <version>${version.fdk-concept-builder}</version>
-       <scope>system</scope>
-       <systemPath>${basedir}/libs/fdk-concept-builder-1.0-SNAPSHOT.jar</systemPath>
-   </dependency>
-  ```
-
-3. Tell Spring Boot to include system dependencies:
-
-  ```
-  <plugin>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-maven-plugin</artifactId>
-  <configuration>
-  <includeSystemScope>true</includeSystemScope>
-  </configuration>
-  </plugin>
-  ```
+The package is available from both [Maven Central](https://mvnrepository.com/artifact/no.norge.data.skos-ap-no/concept-builder) and [GitHub Packages](https://github.com/Informasjonsforvaltning/skos-ap-no-tools/packages/867408)
 
 # References
 
