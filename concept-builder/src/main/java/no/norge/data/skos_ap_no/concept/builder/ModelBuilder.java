@@ -54,9 +54,9 @@ public class ModelBuilder {
         model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
 
         model.setNsPrefix("skosxl", "http://www.w3.org/2008/05/skos-xl#");
-        model.setNsPrefix("xkos", "http://rdf-vocabulary.ddialliance.org/xkos#");
 
         model.setNsPrefix("skosno", SKOSNO.NS);
+        model.setNsPrefix("xkos", XKOS.NS);
 
         return model;
     }

@@ -8,6 +8,7 @@ import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.DCTerms;
+import org.apache.jena.vocabulary.SKOS;
 
 import java.time.LocalDate;
 
@@ -41,13 +42,13 @@ public class AssociativeRelationBuilder {
 
     public AssociativeRelationBuilder associatedConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(SKOSNO.assosiertBegrep, model.createResource(ModelBuilder.escapeURI(uri)));
+            resource.addProperty(SKOS.related, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }
 
     public ConceptBuilder build() {
-        parent.getResource().addProperty(SKOSNO.begrepsrelasjon, resource);
+        parent.getResource().addProperty(SKOSNO.assosiativRelasjon, resource);
         return parent;
     }
 

@@ -9,7 +9,7 @@
     <name>Concept Builder</name>
     <description>A stand alone library to instantiate concepts, deserialize/serialize them in RDF and Json according to DIFIs standard</description>
     <url>https://github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
 
     <licenses>
         <license>
