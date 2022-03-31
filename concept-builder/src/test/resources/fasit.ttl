@@ -5,6 +5,7 @@
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix skosno: <https://data.norge.no/vocabulary/skosno#> .
+@prefix xkos:  <https://data.norge.no/vocabulary/xkos#> .
 @prefix dqv:   <http://www.w3.org/ns/dqv#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
@@ -25,9 +26,9 @@
 <http://my.org/concept/Concept3>
         a                       skos:Concept ;
         rdfs:seeAlso            "http://my.org/concept/Concept1" ;
-        skosno:begrepsrelasjon  [ a                           skosno:PartitivRelasjon ;
+        skosno:partitivRelasjon [ a                           skosno:PartitivRelasjon ;
                                   skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
-                                  skosno:underordnetBegrep    <http://my.org/concept/Concept2> ;
+                                  xkos:generalizes            <http://my.org/concept/Concept2> ;
                                   dct:modified                "2019-08-21"^^xsd:date
                                 ] ;
         dct:identifier          <http://my.org/concept/Concept3> ;
@@ -36,9 +37,9 @@
 <http://my.org/concept/Concept2>
         a                       skos:Concept ;
         rdfs:seeAlso            "http://my.org/concept/Concept1" ;
-        skosno:begrepsrelasjon  [ a                           skosno:GeneriskRelasjon ;
+        skosno:generiskRelasjon [ a                           skosno:GeneriskRelasjon ;
                                   skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
-                                  skosno:overordnetBegrep     <http://my.org/concept/Concept3> ;
+                                  xkos:specializes            <http://my.org/concept/Concept3> ;
                                   dct:modified                "2019-08-20"^^xsd:date
                                 ] ;
         dct:identifier          <http://my.org/concept/Concept2> ;
@@ -53,8 +54,8 @@
 
 <http://my.org/concept/Concept1>
         a                             skos:Concept ;
-        skosno:begrepsrelasjon        [ a                       skosno:AssosiativRelasjon ;
-                                        skosno:assosiertBegrep  <http://my.org/concept/Concept2> ;
+        skosno:assosiativRelasjon     [ a                       skosno:AssosiativRelasjon ;
+                                        skos:related  <http://my.org/concept/Concept2> ;
                                         dct:description         "beskrivelse"@nb , "description"@en ;
                                         dct:modified            "2019-08-19"^^xsd:date
                                       ] ;

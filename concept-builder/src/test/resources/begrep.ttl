@@ -5,6 +5,7 @@
 @prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix skosno: <https://data.norge.no/vocabulary/skosno#> .
+@prefix xkos:  <https://data.norge.no/vocabulary/xkos#> .
 @prefix dqv:   <http://www.w3.org/ns/dqv#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
@@ -19,8 +20,8 @@
 
 <http://my.org/concept/Concept1>
         a                             skos:Concept ;
-        skosno:begrepsrelasjon        [ a                       skosno:AssosiativRelasjon ;
-                                        skosno:assosiertBegrep  <http://my.org/concept/Concept2> ;
+        skosno:assosiativRelasjon     [ a                       skosno:AssosiativRelasjon ;
+                                        skos:related            <http://my.org/concept/Concept2> ;
                                         dct:description         "beskrivelse"@nb , "description"@en ;
                                         dct:modified            "2019-08-19"^^xsd:date
                                       ] ;

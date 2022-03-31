@@ -18,11 +18,10 @@ public class SKOSNO {
     public static Property forholdTilKilde = model.createProperty(NS, "forholdTilKilde");
     public static Property omfang = model.createProperty(NS, "omfang");
     public static Property datastrukturterm = model.createProperty(NS, "datastrukturterm");
-    public static Property begrepsrelasjon = model.createProperty(NS, "begrepsrelasjon");
+    public static Property assosiativRelasjon = model.createProperty(NS, "assosiativRelasjon");
+    public static Property partitivRelasjon = model.createProperty(NS, "partitivRelasjon");
+    public static Property generiskRelasjon = model.createProperty(NS, "generiskRelasjon");
     public static Property inndelingskriterium = model.createProperty(NS, "inndelingskriterium");
-    public static Property assosiertBegrep = model.createProperty(NS, "assosiertBegrep");
-    public static Property underordnetBegrep = model.createProperty(NS, "underordnetBegrep");
-    public static Property overordnetBegrep = model.createProperty(NS, "overordnetBegrep");
 
     public static Property allmennheten = model.createProperty(NS, "allmennheten");
     public static Property fagspesialist = model.createProperty(NS, "fagspesialist");

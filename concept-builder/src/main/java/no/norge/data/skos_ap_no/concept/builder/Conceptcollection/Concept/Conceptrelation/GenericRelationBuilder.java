@@ -3,6 +3,7 @@ package no.norge.data.skos_ap_no.concept.builder.Conceptcollection.Concept.Conce
 import no.norge.data.skos_ap_no.concept.builder.Conceptcollection.Concept.ConceptBuilder;
 import no.norge.data.skos_ap_no.concept.builder.ModelBuilder;
 import no.norge.data.skos_ap_no.concept.builder.SKOSNO;
+import no.norge.data.skos_ap_no.concept.builder.XKOS;
 import no.norge.data.skos_ap_no.concept.builder.generic.LocalDateToXSDDateTime;
 import org.apache.jena.datatypes.xsd.impl.XSDDateType;
 import org.apache.jena.rdf.model.Model;
@@ -41,20 +42,20 @@ public class GenericRelationBuilder {
 
     public GenericRelationBuilder broaderConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(SKOSNO.overordnetBegrep, model.createResource(ModelBuilder.escapeURI(uri)));
+            resource.addProperty(XKOS.specializes, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }
 
     public GenericRelationBuilder narrowerConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(SKOSNO.underordnetBegrep, model.createResource(ModelBuilder.escapeURI(uri)));
+            resource.addProperty(XKOS.generalizes, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }
 
     public ConceptBuilder build() {
-        parent.getResource().addProperty(SKOSNO.begrepsrelasjon, resource);
+        parent.getResource().addProperty(SKOSNO.generiskRelasjon, resource);
         return parent;
     }
 
