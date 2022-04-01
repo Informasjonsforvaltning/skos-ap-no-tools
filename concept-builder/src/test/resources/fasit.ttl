@@ -26,7 +26,7 @@
 <http://my.org/concept/Concept3>
         a                       skos:Concept ;
         rdfs:seeAlso            "http://my.org/concept/Concept1" ;
-        skosno:partitivRelasjon [ a                           skosno:PartitivRelasjon ;
+        skosno:generiskRelasjon [ a                           skosno:GeneriskRelasjon ;
                                   skosno:inndelingskriterium  "inndelingskriterium"@nb , "divisioncriterion"@en ;
                                   xkos:generalizes            <http://my.org/concept/Concept2> ;
                                   dct:modified                "2019-08-21"^^xsd:date
