@@ -28,7 +28,7 @@ public class PartitiveRelationBuilder {
 
     public PartitiveRelationBuilder divisioncriterion(final String divisioncriterionText, final String language) {
         if (divisioncriterionText != null) {
-            resource.addProperty(SKOSNO.inndelingskriterium, divisioncriterionText, language);
+            resource.addProperty(DCTerms.description, divisioncriterionText, language);
         }
         return this;
     }
@@ -42,14 +42,14 @@ public class PartitiveRelationBuilder {
 
     public PartitiveRelationBuilder broaderConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(XKOS.specializes, model.createResource(ModelBuilder.escapeURI(uri)));
+            resource.addProperty(DCTerms.isPartOf, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }
 
     public PartitiveRelationBuilder narrowerConcept(final String uri) {
         if (uri != null) {
-            resource.addProperty(XKOS.generalizes, model.createResource(ModelBuilder.escapeURI(uri)));
+            resource.addProperty(DCTerms.hasPart, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }
