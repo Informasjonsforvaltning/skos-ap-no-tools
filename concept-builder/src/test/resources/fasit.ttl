@@ -45,6 +45,30 @@
         dct:identifier          <http://my.org/concept/Concept2> ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
+<http://my.org/concept/virksomhet>
+        a                       skos:Concept ;
+        skosno:partitivRelasjon [ a                             skosno:PartitivRelasjon ;
+                                  dct:description               "funksjon"@nb , "divisioncriterion"@en ;
+                                  dct:hasPart                   <http://my.org/concept/organisatoriskEnhet> ;
+                                  dct:modified                  "2022-04-01"^^xsd:date
+                                ] ;
+        dct:identifier          <http://my.org/concept/virksomhet> ;
+        dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+
+<http://my.org/concept/organisatoriskEnhet>
+        a                       skos:Concept ;
+        skosxl:prefLabel        [ a                   skosxl:Label ;
+                                    dct:modified        "2017-10-31"^^xsd:date ;
+                                    skosxl:literalForm  "organisatorisk enhet"@nb
+                              ] ;
+        skosno:partitivRelasjon [ a                           skosno:PartitivRelasjon ;
+                                  dct:description  "funksjon"@nb , "divisioncriterion"@en ;
+                                  dct:isPartOf            <http://my.org/concept/virksomhet> ;
+                                  dct:modified                "2022-04-01"^^xsd:date
+                                ] ;
+        dct:identifier          <http://my.org/concept/organisatoriskEnhet> ;
+        dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
+
 <http://my.org/collection/second>
         a               skos:Collection ;
         rdfs:label      "CollectionName2" ;
@@ -111,7 +135,7 @@
         dct:description    "Description1" ;
         dct:identifier     <http://my.org/collection/first> ;
         dct:publisher      <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> ;
-        skos:member        <http://my.org/concept/Concept3> , <http://my.org/concept/Concept2> , <http://my.org/concept/Concept1> ;
+        skos:member        <http://my.org/concept/virksomhet> , <http://my.org/concept/Concept1> , <http://my.org/concept/Concept2> , <http://my.org/concept/organisatoriskEnhet> , <http://my.org/concept/Concept3> ;
         dcat:contactPoint  [ a                          vcard:Organization ;
                              vcard:hasEmail             <mailto:org1@invalid.org> ;
                              vcard:hasOrganizationUnit  "ContactPointOrg1" ;
