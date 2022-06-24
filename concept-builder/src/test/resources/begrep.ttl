@@ -46,7 +46,7 @@
         skosno:datastrukturterm       [ a                   skosxl:Label ;
                                         skosxl:literalForm  "DatastrukturTerm1"@nb , "DatastructureLabel1"@en
                                       ] ;
-        dct:identifier                <http://my.org/concept/Concept1> ;
+        dct:identifier                "http://my.org/concept/Concept1" ;
         dct:modified                  "2019-08-22"^^xsd:date ;
         dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1.1> ;
         dct:subject                   "Subject1"@en , "Fagområde1"@nb ;

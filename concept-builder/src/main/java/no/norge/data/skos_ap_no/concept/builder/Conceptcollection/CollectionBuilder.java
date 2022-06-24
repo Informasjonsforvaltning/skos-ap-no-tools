@@ -47,7 +47,7 @@ public class CollectionBuilder {
             resource.removeAll(DCTerms.identifier);
         }
         if (identifier != null) {
-            resource.addProperty(DCTerms.identifier, model.createResource(identifier));
+            resource.addProperty(DCTerms.identifier, model.createLiteral(identifier));
         }
         return this;
     }
