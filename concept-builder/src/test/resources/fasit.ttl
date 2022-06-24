@@ -20,7 +20,7 @@
 
 <http://my.second.org/concept/Concept%20with%20space>
         a               skos:Concept ;
-        dct:identifier  <http://my.second.org/concept/Concept%20with%20space> ;
+        dct:identifier  "http://my.second.org/concept/Concept%20with%20space" ;
         dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> .
 
 <http://my.org/concept/Concept3>
@@ -31,7 +31,7 @@
                                   xkos:generalizes            <http://my.org/concept/Concept2> ;
                                   dct:modified                "2019-08-21"^^xsd:date
                                 ] ;
-        dct:identifier          <http://my.org/concept/Concept3> ;
+        dct:identifier          "http://my.org/concept/Concept3" ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
 <http://my.org/concept/Concept2>
@@ -42,7 +42,7 @@
                                   xkos:specializes            <http://my.org/concept/Concept3> ;
                                   dct:modified                "2019-08-20"^^xsd:date
                                 ] ;
-        dct:identifier          <http://my.org/concept/Concept2> ;
+        dct:identifier          "http://my.org/concept/Concept2" ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
 <http://my.org/concept/virksomhet>
@@ -52,7 +52,7 @@
                                   dct:hasPart                   <http://my.org/concept/organisatoriskEnhet> ;
                                   dct:modified                  "2022-04-01"^^xsd:date
                                 ] ;
-        dct:identifier          <http://my.org/concept/virksomhet> ;
+        dct:identifier          "http://my.org/concept/virksomhet" ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
 <http://my.org/concept/organisatoriskEnhet>
@@ -66,13 +66,13 @@
                                   dct:isPartOf            <http://my.org/concept/virksomhet> ;
                                   dct:modified                "2022-04-01"^^xsd:date
                                 ] ;
-        dct:identifier          <http://my.org/concept/organisatoriskEnhet> ;
+        dct:identifier          "http://my.org/concept/organisatoriskEnhet" ;
         dct:publisher           <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> .
 
 <http://my.org/collection/second>
         a               skos:Collection ;
         rdfs:label      "CollectionName2" ;
-        dct:identifier  <http://my.org/collection/second> ;
+        dct:identifier  "http://my.org/collection/second" ;
         dct:publisher   <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher2> ;
         skos:member     <http://my.second.org/concept/Concept%20with%20space> .
 
@@ -104,7 +104,7 @@
         skosno:datastrukturterm       [ a                   skosxl:Label ;
                                         skosxl:literalForm  "DatastrukturTerm1"@nb , "DatastructureLabel1"@en
                                       ] ;
-        dct:identifier                <http://my.org/concept/Concept1> ;
+        dct:identifier                "http://my.org/concept/Concept1" ;
         dct:modified                  "2019-08-22"^^xsd:date ;
         dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1.1> ;
         dct:subject                   "Subject1"@en , "Fagområde1"@nb ;
@@ -133,7 +133,7 @@
         a                  skos:Collection ;
         rdfs:label         "CollectionName1" ;
         dct:description    "Description1" ;
-        dct:identifier     <http://my.org/collection/first> ;
+        dct:identifier     "http://my.org/collection/first" ;
         dct:publisher      <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1> ;
         skos:member        <http://my.org/concept/virksomhet> , <http://my.org/concept/Concept1> , <http://my.org/concept/Concept2> , <http://my.org/concept/organisatoriskEnhet> , <http://my.org/concept/Concept3> ;
         dcat:contactPoint  [ a                          vcard:Organization ;
