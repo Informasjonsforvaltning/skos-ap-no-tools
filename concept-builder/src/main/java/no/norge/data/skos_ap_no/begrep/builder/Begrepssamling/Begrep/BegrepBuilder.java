@@ -61,8 +61,8 @@ public class BegrepBuilder {
         return this;
     }
 
-    public BegrepBuilder bruksområde(final String tekst, final String språk) {
-        conceptBuilder.domainOfUse(tekst, språk);
+    public BegrepBuilder fagområde(final String uri) {
+        conceptBuilder.subject(uri);
         return this;
     }
 

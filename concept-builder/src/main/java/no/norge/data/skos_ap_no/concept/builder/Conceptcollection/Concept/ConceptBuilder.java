@@ -101,9 +101,9 @@ public class ConceptBuilder {
         return this;
     }
 
-    public ConceptBuilder domainOfUse(final String domainOfUse, final String language) {
-        if (domainOfUse != null) {
-            resource.addProperty(SKOSNO.bruksområde, domainOfUse, language);
+    public ConceptBuilder subject(final String uri) {
+        if (uri != null) {
+            resource.addProperty(DCTerms.subject, model.createResource(ModelBuilder.escapeURI(uri)));
         }
         return this;
     }

@@ -42,14 +42,13 @@
         skosno:alternativFormulering  [ a           skosno:AlternativFormulering ;
                                         rdfs:label  "AlternativeWording1"@en
                                       ] ;
-        skosno:bruksområde            "bruksområde1"@nb , "domainOfUse1"@en ;
         skosno:datastrukturterm       [ a                   skosxl:Label ;
                                         skosxl:literalForm  "DatastrukturTerm1"@nb , "DatastructureLabel1"@en
                                       ] ;
         dct:identifier                "http://my.org/concept/Concept1" ;
         dct:modified                  "2019-08-22"^^xsd:date ;
         dct:publisher                 <https://data.brreg.no/enhetsregisteret/api/enheter/Publisher1.1> ;
-        dct:subject                   "Subject1"@en , "Fagområde1"@nb ;
+        dct:subject                   "Subject1"@en , "Fagområde1"@nb , <https://test.no/subject> ;
         dct:temporal                  [ a                 dct:PeriodOfTime ;
                                         schema:endDate    "2037-10-19"^^xsd:date ;
                                         schema:startDate  "2017-10-20"^^xsd:date
