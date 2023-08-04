@@ -9,7 +9,7 @@
     <name>Concept Builder</name>
     <description>A stand alone library to instantiate concepts, deserialize/serialize them in RDF and Json according to DIFIs standard</description>
     <url>https://github.com/Informasjonsforvaltning/skos-ap-no-tools</url>
-    <version>2.0.3</version>
+    <version>2.0.4</version>
 
     <licenses>
         <license>
@@ -85,7 +85,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <jena.version>4.8.0</jena.version>
+        <jena.version>4.9.0</jena.version>
     </properties>
 
     <build>
@@ -103,7 +103,7 @@
                 <!-- Unit test runner -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.1.2</version>
             </plugin>
 
             <!-- release -->
@@ -183,7 +183,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.9.3</version>
+            <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
 
